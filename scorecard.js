@@ -9,7 +9,7 @@
         "Three months or more",
         "One to two months",
         "A few weeks",
-        "I honestly don't know"
+        "I'm not sure"
       ]
     },
     {
@@ -85,7 +85,7 @@
       min: 0,
       name: "The High Performer",
       description:
-        "Your financial life may look more secure than it is. Strong income and a composed exterior can mask a thin foundation — and the gap only shows up when something breaks. This isn't a verdict. It's a starting point.",
+        "Your financial life may look more secure than it is. Strong income and a composed exterior can mask a thin foundation — and the gap only shows up when something breaks. Consider this a starting point for what comes next.",
       nextStep: "Start with liquidity. Three months of accessible cash changes every other financial decision you make."
     }
   ];

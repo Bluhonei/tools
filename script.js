@@ -62,23 +62,23 @@
     VS: {
       name: "The Visible Spender",
       description:
-        "You've been taught to blame the visible stuff — the coffee, the takeout, the impulse buy — because it's easier to see than what's underneath it. But the small purchases were never really the leak. The real leak is a financial setup you haven't looked at closely: fixed costs you can't state to the dollar, and a structure that's been running on autopilot.",
+        "You've been taught to blame the visible stuff — the coffee, the takeout — because it's easier to see than what's underneath it. But the small purchases were never really the leak. The real leak is a financial setup you haven't looked at closely: fixed costs you can't state to the dollar, and a structure that's been running on autopilot.",
       nextStep:
         "This week, pull up your last bank statement and write down your actual fixed costs — rent, subscriptions, minimums — to the dollar. You can't fix a leak you haven't located."
     },
     UE: {
       name: "The Under-Earner",
       description:
-        "Your spending isn't the real problem — your income has been standing still while your responsibilities keep growing. It's been a while since you asked for more, whether that's a raise, a rate increase, or a new opportunity, and no amount of budget-tightening will close a gap that's actually about what's coming in, not what's going out.",
+        "Your spending isn't the real problem — your income has been standing still while your responsibilities keep growing. It's been a while since you asked for more, whether that's a raise or a rate increase, and no amount of budget-tightening will close a gap that's about what's coming in.",
       nextStep:
         "Before your next pay cycle, research your market rate and draft the sentence you'll use to ask for more — even if you don't send it this week. The conversation starts on paper."
     },
     IC: {
       name: "The Invisible Carrier",
       description:
-        "You're the person people call when they're short, in a bind, or need help — and you almost always come through. That reliability is real, but it's quietly costing you your own financial floor. Money keeps leaving your account for other people's emergencies before it ever gets the chance to build your own security.",
+        "You're the person people call when they're short or in a bind — and you almost always come through. That reliability is real, but it's quietly costing you your own financial floor. Money keeps leaving your account for other people's emergencies before it ever gets the chance to build your own security.",
       nextStep:
-        "Set a monthly \"giving cap\" — a specific number you're genuinely comfortable spending on others — and let that number, not the request, decide your answer next time."
+        "Set a monthly \"giving cap\" — a specific number you're comfortable spending on others — and let that number, not the request, decide your answer next time."
     }
   };
 
