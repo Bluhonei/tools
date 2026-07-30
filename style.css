@@ -1031,6 +1031,134 @@ body {
   margin: -18px auto 30px;
 }
 
+/* The Reliability Policy (Ep06) */
+.decision-note {
+  font-size: 0.82rem;
+  opacity: 0.6;
+  margin: 10px 0 16px;
+}
+
+.decision-note--terra {
+  color: var(--terra);
+  opacity: 1;
+  font-weight: 600;
+  margin: -6px 0 16px;
+}
+
+.option-marker--checkbox {
+  border-radius: 5px;
+}
+
+.option-card.selected .option-marker--checkbox::after {
+  content: "";
+  width: 5px;
+  height: 9px;
+  border-radius: 0;
+  background: transparent;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.policy-preview {
+  margin-top: 8px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.policy-preview--ready {
+  border-color: var(--plum);
+  background: linear-gradient(0deg, rgba(217, 183, 131, 0.1), rgba(217, 183, 131, 0.1)), var(--white);
+}
+
+.policy-preview-ready-label {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--terra);
+  margin: 0 0 10px;
+}
+
+.policy-preview-header {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--plum);
+  margin: 0 0 6px;
+}
+
+.policy-preview-subtext {
+  font-size: 0.82rem;
+  opacity: 0.6;
+  margin: 0 0 18px;
+}
+
+.policy-line {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--plum);
+  opacity: 0.35;
+  margin: 0 0 14px;
+  transition: opacity 0.2s ease;
+}
+
+.policy-line--complete {
+  opacity: 1;
+}
+
+.policy-status-note {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  text-align: center;
+  margin: 10px 0 0;
+  min-height: 1.2em;
+}
+
+.policy-result-card {
+  background: linear-gradient(0deg, rgba(217, 183, 131, 0.1), rgba(217, 183, 131, 0.1)), var(--white);
+  border: 1px solid var(--plum);
+  border-radius: var(--radius);
+  padding: 30px 26px;
+  text-align: left;
+  margin-bottom: 22px;
+}
+
+.policy-result-header {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--plum);
+  margin: 0 0 6px;
+  text-align: center;
+}
+
+.policy-result-date {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  text-align: center;
+  margin: 0 0 26px;
+}
+
+.policy-result-sentence {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 18px;
+}
+
+.policy-result-sentence:last-of-type {
+  margin-bottom: 26px;
+}
+
 /* Responsive */
 @media (max-width: 480px) {
   .app-shell {
@@ -1086,6 +1214,14 @@ body {
 
   .editorial-line {
     font-size: 1rem;
+  }
+
+  .policy-result-card {
+    padding: 22px 18px;
+  }
+
+  .policy-line {
+    font-size: 0.96rem;
   }
 
   .btn-primary {

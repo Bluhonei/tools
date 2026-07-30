@@ -34,18 +34,26 @@ tone, banned constructions, and result-summary examples.
   plum/amber/red), plus a transition-fund gap against a selectable
   3/4–5/6-month target. The only tool in the suite that outputs a
   specific number rather than a profile, plan, or inventory.
+- **The Reliability Policy** (`policy.html`) — Ep06 companion. A
+  decision-builder: four decisions (help limit, protected accounts,
+  waiting period, default response) drive a live policy preview that
+  fills in below as she completes each one. Results are a clean,
+  screenshottable card with the finished policy in four first-person
+  sentences. The only tool in the suite that produces a written
+  personal document rather than a profile, plan, inventory, or number.
 
 Ep01 and Ep02 share the same quiz structure (intro → one question at a
-time with a progress bar → results → email capture). Ep03, Ep04, and
-Ep05 are each a different interaction pattern (an all-at-once checklist;
-a live budget planner; a live pure calculator) — all five reuse the same
-brand stylesheet, card components, and footer for visual consistency,
-but keep separate JS files since their data/logic differ.
+time with a progress bar → results → email capture). Ep03-Ep06 are each
+a different interaction pattern (an all-at-once checklist; a live budget
+planner; a live pure calculator; a live decision-builder) — all six
+reuse the same brand stylesheet, card components, and footer for visual
+consistency, but keep separate JS files since their data/logic differ.
 
 ## Local preview
 
-Open `index.html`, `scorecard.html`, `audit.html`, `summer.html`, or
-`floor.html` directly in a browser, or serve the folder locally:
+Open `index.html`, `scorecard.html`, `audit.html`, `summer.html`,
+`floor.html`, or `policy.html` directly in a browser, or serve the
+folder locally:
 
 ```
 npx serve .
@@ -60,8 +68,8 @@ npx serve .
    - Build command: *(none)*
    - Publish directory: `.`
 4. Deploy. `index.html`, `scorecard.html`, `audit.html`, `summer.html`,
-   and `floor.html` are all served as static pages at their respective
-   paths.
+   `floor.html`, and `policy.html` are all served as static pages at
+   their respective paths.
 
 ## Wiring up email capture
 
@@ -71,10 +79,10 @@ in `<head>`.
 
 **The Other Kind of Rich Scorecard** (`scorecard.html`), **The Where You
 Actually Stand Audit** (`audit.html`), **The Summer Spending Worksheet**
-(`summer.html`), and **The Financial Floor Calculator** (`floor.html`)
-still ship with the lightweight fallback form (same pattern the
-Worksheet originally used) so each flow is demoable end to end. To go
-live for any of them:
+(`summer.html`), **The Financial Floor Calculator** (`floor.html`), and
+**The Reliability Policy** (`policy.html`) still ship with the
+lightweight fallback form (same pattern the Worksheet originally used)
+so each flow is demoable end to end. To go live for any of them:
 
 1. In Flodesk, open the form for that tool and copy its embed code.
    (Note: the Audit's form is email-only, no name field, by design.)
@@ -94,9 +102,11 @@ live for any of them:
 - `audit.html` / `audit.js` — Ep03 The Where You Actually Stand Audit
 - `summer.html` / `summer.js` — Ep04 The Summer Spending Worksheet
 - `floor.html` / `floor.js` — Ep05 The Financial Floor Calculator
+- `policy.html` / `policy.js` — Ep06 The Reliability Policy
 - `style.css` — shared Bluhoneí brand styling (cream/plum/terra/gold
   palette, card components, dimension-breakdown dots, audit checklist/
   toggle/modal components, step cards/live-calc/result cards shared by
-  the Summer Worksheet and Floor Calculator) used by all five tools
+  the Summer Worksheet, Floor Calculator, and Reliability Policy) used
+  by all six tools
 - `BRAND_VOICE.md` — copy/voice reference; read before writing any UI text
 - `netlify.toml` — Netlify deploy configuration
