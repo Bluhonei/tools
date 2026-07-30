@@ -28,18 +28,24 @@ tone, banned constructions, and result-summary examples.
   "advance no," monthly income/fixed costs) and every calculation
   updates live as she types. Results show whether the plan fits her
   actual discretionary income.
+- **The Financial Floor Calculator** (`floor.html`) — Ep05 companion. A
+  pure calculator: estimated monthly costs and accessible cash produce
+  a live "floor holds for approximately X months" result (color-coded
+  plum/amber/red), plus a transition-fund gap against a selectable
+  3/4–5/6-month target. The only tool in the suite that outputs a
+  specific number rather than a profile, plan, or inventory.
 
 Ep01 and Ep02 share the same quiz structure (intro → one question at a
-time with a progress bar → results → email capture). Ep03 and Ep04 are
-each a different interaction pattern (an all-at-once checklist; a live
-numeric calculator) — all four reuse the same brand stylesheet, card
-components, and footer for visual consistency, but keep separate JS
-files since their data/logic differ.
+time with a progress bar → results → email capture). Ep03, Ep04, and
+Ep05 are each a different interaction pattern (an all-at-once checklist;
+a live budget planner; a live pure calculator) — all five reuse the same
+brand stylesheet, card components, and footer for visual consistency,
+but keep separate JS files since their data/logic differ.
 
 ## Local preview
 
-Open `index.html`, `scorecard.html`, `audit.html`, or `summer.html`
-directly in a browser, or serve the folder locally:
+Open `index.html`, `scorecard.html`, `audit.html`, `summer.html`, or
+`floor.html` directly in a browser, or serve the folder locally:
 
 ```
 npx serve .
@@ -53,8 +59,8 @@ npx serve .
 3. Build settings are picked up automatically from `netlify.toml`:
    - Build command: *(none)*
    - Publish directory: `.`
-4. Deploy. `index.html`, `scorecard.html`, `audit.html`, and
-   `summer.html` are all served as static pages at their respective
+4. Deploy. `index.html`, `scorecard.html`, `audit.html`, `summer.html`,
+   and `floor.html` are all served as static pages at their respective
    paths.
 
 ## Wiring up email capture
@@ -64,10 +70,11 @@ form embedded, along with the required Flodesk universal loader script
 in `<head>`.
 
 **The Other Kind of Rich Scorecard** (`scorecard.html`), **The Where You
-Actually Stand Audit** (`audit.html`), and **The Summer Spending
-Worksheet** (`summer.html`) still ship with the lightweight fallback
-form (same pattern the Worksheet originally used) so each flow is
-demoable end to end. To go live for any of them:
+Actually Stand Audit** (`audit.html`), **The Summer Spending Worksheet**
+(`summer.html`), and **The Financial Floor Calculator** (`floor.html`)
+still ship with the lightweight fallback form (same pattern the
+Worksheet originally used) so each flow is demoable end to end. To go
+live for any of them:
 
 1. In Flodesk, open the form for that tool and copy its embed code.
    (Note: the Audit's form is email-only, no name field, by design.)
@@ -86,9 +93,10 @@ demoable end to end. To go live for any of them:
 - `scorecard.html` / `scorecard.js` — Ep02 The Other Kind of Rich Scorecard
 - `audit.html` / `audit.js` — Ep03 The Where You Actually Stand Audit
 - `summer.html` / `summer.js` — Ep04 The Summer Spending Worksheet
+- `floor.html` / `floor.js` — Ep05 The Financial Floor Calculator
 - `style.css` — shared Bluhoneí brand styling (cream/plum/terra/gold
   palette, card components, dimension-breakdown dots, audit checklist/
-  toggle/modal components, summer worksheet step cards/live-calc/result
-  cards) used by all four tools
+  toggle/modal components, step cards/live-calc/result cards shared by
+  the Summer Worksheet and Floor Calculator) used by all five tools
 - `BRAND_VOICE.md` — copy/voice reference; read before writing any UI text
 - `netlify.toml` — Netlify deploy configuration
