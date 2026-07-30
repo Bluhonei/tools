@@ -49,18 +49,6 @@ body {
   padding: 0 24px;
 }
 
-/* Header */
-.site-header {
-  padding: 28px 0 8px;
-  text-align: center;
-}
-
-.logo {
-  height: 34px;
-  width: auto;
-  display: inline-block;
-}
-
 /* Stage */
 .stage {
   flex: 1;
