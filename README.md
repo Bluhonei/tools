@@ -3,6 +3,10 @@
 Companion interactive tools for Bluhoneí articles/episodes. Static site,
 no build step, no dependencies. Deploys to Netlify as-is.
 
+Read `BRAND_VOICE.md` before writing any copy, labels, result text,
+button text, or UI strings for any tool in this repo — it covers voice,
+tone, banned constructions, and result-summary examples.
+
 ## Tools
 
 - **The Real Money Leak Worksheet** (`index.html`) — Ep01 companion. Six
@@ -75,5 +79,6 @@ so each flow is demoable end to end. To go live for either:
 - `audit.html` / `audit.js` — Ep03 The Where You Actually Stand Audit
 - `style.css` — shared Bluhoneí brand styling (cream/plum/terra/gold
   palette, card components, dimension-breakdown dots, audit checklist/
-  toggle/modal/results-column components) used by all three tools
+  toggle/modal/results components) used by all three tools
+- `BRAND_VOICE.md` — copy/voice reference; read before writing any UI text
 - `netlify.toml` — Netlify deploy configuration

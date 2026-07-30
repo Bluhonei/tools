@@ -150,6 +150,28 @@
     { key: "avoided", label: "Avoided", modifier: "avoided" }
   ];
 
+  // Category names that have a dedicated dominant-gap summary. Any
+  // dominant category outside this set (or a tie between categories)
+  // falls back to the "mixed" summary.
+  var DOMINANT_CATEGORY_KEYS = {
+    "Debt": "debt",
+    "Income": "income",
+    "Retirement": "retirement",
+    "Protection & Documents": "protection",
+    "Caregiving & Hidden Costs": "caregiving"
+  };
+
+  var SUMMARY_MESSAGES = {
+    debt: "Your income and daily picture may be clear, but the debt layer underneath it hasn't been fully mapped. That gap tends to grow quietly — not because you're careless, but because the details feel heavy to look at. The clearest thing you can do right now is pull one number and write it down.",
+    income: "You're managing what you have — but the income side of this picture has some catching up to do. The negotiation you've been putting off and the rate question you haven't asked are the gaps most likely to compound over time. That conversation is worth having before the year ends.",
+    retirement: "The future-building layer of this audit needs attention. It's not that retirement isn't on your mind — it's that you haven't had a clear look at it recently. Fifteen minutes with your account this week changes that.",
+    protection: "The protection layer — the documents, the designations, the coverage — is the part of a financial life that no one thinks about until something happens. Yours needs a review. This isn't urgent in the way debt feels urgent, but it matters more than most people realize until it's too late to matter.",
+    caregiving: "The caregiving cost in your life has been running without a line in your plan. That kind of invisible expense tends to quietly reshape everything else — your savings rhythm, your capacity to negotiate, your ability to build. Naming the number is the first move.",
+    mixed: "Across several areas, things need a closer look. Nothing here is a crisis — but the pattern of what's been avoided and what's been left unreviewed suggests a financial life that's been managed by feel rather than by design. One category at a time is enough.",
+    attentionOnly: "You know what's there — you just haven't reviewed it recently. That's a different problem than avoidance, and it's an easier one to solve. Pick the category that matters most right now and give it one hour this week.",
+    allCurrent: "Your foundation is solid. The next move is to schedule an annual review date so it stays that way."
+  };
+
   // Flatten once, in category order, since that order is also the
   // "next step" priority order.
   var ITEMS = [];
@@ -182,10 +204,7 @@
   var btnModalGoBack = document.getElementById("btn-modal-goback");
   var btnModalContinue = document.getElementById("btn-modal-continue");
 
-  var sectionAttention = document.getElementById("section-attention");
-  var sectionAvoided = document.getElementById("section-avoided");
-  var colAttention = document.getElementById("col-attention");
-  var colAvoided = document.getElementById("col-avoided");
+  var summaryText = document.getElementById("audit-summary-text");
   var nextStepText = document.getElementById("next-step-text");
   var nextStepAction = document.getElementById("next-step-action");
   var btnBackToChecklist = document.getElementById("btn-back-to-checklist");
@@ -270,22 +289,41 @@
     updateProgressNote();
   }
 
-  function renderSection(sectionEl, listEl, stateKey) {
-    listEl.innerHTML = "";
-    var matches = ITEMS.filter(function (item) { return item.state === stateKey; });
+  function computeSummary() {
+    var avoidedCount = ITEMS.filter(function (item) { return item.state === "avoided"; }).length;
+    var attentionCount = ITEMS.filter(function (item) { return item.state === "attention"; }).length;
 
-    if (matches.length === 0) {
-      sectionEl.hidden = true;
-      return;
+    if (avoidedCount === 0 && attentionCount === 0) {
+      return SUMMARY_MESSAGES.allCurrent;
     }
 
-    sectionEl.hidden = false;
-    matches.forEach(function (item) {
-      var li = document.createElement("li");
-      li.className = "audit-section-item";
-      li.textContent = item.text;
-      listEl.appendChild(li);
+    if (avoidedCount === 0) {
+      return SUMMARY_MESSAGES.attentionOnly;
+    }
+
+    var avoidedByCategory = {};
+    ITEMS.forEach(function (item) {
+      if (item.state === "avoided") {
+        avoidedByCategory[item.categoryName] = (avoidedByCategory[item.categoryName] || 0) + 1;
+      }
     });
+
+    var topCategory = null;
+    var topCount = 0;
+    var tie = false;
+    Object.keys(avoidedByCategory).forEach(function (categoryName) {
+      var count = avoidedByCategory[categoryName];
+      if (count > topCount) {
+        topCount = count;
+        topCategory = categoryName;
+        tie = false;
+      } else if (count === topCount) {
+        tie = true;
+      }
+    });
+
+    var key = !tie && topCategory ? DOMINANT_CATEGORY_KEYS[topCategory] : null;
+    return key ? SUMMARY_MESSAGES[key] : SUMMARY_MESSAGES.mixed;
   }
 
   function computeNextStep() {
@@ -305,8 +343,7 @@
   }
 
   function renderResults() {
-    renderSection(sectionAttention, colAttention, "attention");
-    renderSection(sectionAvoided, colAvoided, "avoided");
+    summaryText.textContent = computeSummary();
 
     var next = computeNextStep();
     nextStepText.textContent = next.text;
