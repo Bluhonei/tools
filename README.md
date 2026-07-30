@@ -13,16 +13,23 @@ no build step, no dependencies. Deploys to Netlify as-is.
   debt clarity, lifestyle resilience, financial protection, future
   building, peace vs. performance), with a dot-indicator breakdown per
   dimension.
+- **The Where You Actually Stand Audit** (`audit.html`) — Ep03 companion.
+  A private, unscored inventory: 21 items across 7 categories, all
+  visible at once, each marked Current / Needs Attention / Avoided. No
+  quiz flow — results are a three-column visual map (collapsing to
+  stacked columns on mobile) plus one prioritized next step.
 
-Both tools share the same brand stylesheet (`style.css`) and structural
-pattern (intro → one question at a time with a progress bar → results →
-email capture), but keep separate JS files since their question data and
-scoring logic differ.
+Ep01 and Ep02 share the same quiz structure (intro → one question at a
+time with a progress bar → results → email capture). Ep03 is
+intentionally different — an all-at-once checklist with no scoring — but
+reuses the same brand stylesheet, card components, and footer for visual
+consistency. All three keep separate JS files since their data/logic
+differ.
 
 ## Local preview
 
-Open `index.html` or `scorecard.html` directly in a browser, or serve the
-folder locally:
+Open `index.html`, `scorecard.html`, or `audit.html` directly in a
+browser, or serve the folder locally:
 
 ```
 npx serve .
@@ -36,8 +43,8 @@ npx serve .
 3. Build settings are picked up automatically from `netlify.toml`:
    - Build command: *(none)*
    - Publish directory: `.`
-4. Deploy. Both `index.html` and `scorecard.html` are served as static
-   pages at their respective paths.
+4. Deploy. `index.html`, `scorecard.html`, and `audit.html` are all served
+   as static pages at their respective paths.
 
 ## Wiring up email capture
 
@@ -45,24 +52,28 @@ npx serve .
 form embedded, along with the required Flodesk universal loader script
 in `<head>`.
 
-**The Other Kind of Rich Scorecard** (`scorecard.html`) still ships with
-the lightweight fallback form (same pattern the Worksheet originally
-used) so the flow is demoable end to end. To go live:
+**The Other Kind of Rich Scorecard** (`scorecard.html`) and **The Where
+You Actually Stand Audit** (`audit.html`) still ship with the
+lightweight fallback form (same pattern the Worksheet originally used)
+so each flow is demoable end to end. To go live for either:
 
-1. In Flodesk, open the form for this scorecard and copy its embed code.
-2. In `scorecard.html`, replace the contents of
-   `#flodesk-embed-container` with that embed code.
-3. Add the Flodesk universal loader script to `scorecard.html`'s
-   `<head>` — copy the `<script>` block from `index.html`'s `<head>` (it's
-   the same snippet for every form on the same Flodesk account).
+1. In Flodesk, open the form for that tool and copy its embed code.
+   (Note: the Audit's form is email-only, no name field, by design.)
+2. In the page's HTML, replace the contents of `#flodesk-embed-container`
+   with that embed code.
+3. Add the Flodesk universal loader script to that page's `<head>` —
+   copy the `<script>` block from `index.html`'s `<head>` (it's the same
+   snippet for every form on the same Flodesk account).
 4. Remove the fallback `<form id="email-form">` markup and its related
-   JS in `scorecard.js` (the `emailForm` submit handler), since Flodesk's
-   embed handles submission itself.
+   JS (the `emailForm` submit handler), since Flodesk's embed handles
+   submission itself.
 
 ## Structure
 
 - `index.html` / `script.js` — Ep01 Real Money Leak Worksheet
 - `scorecard.html` / `scorecard.js` — Ep02 The Other Kind of Rich Scorecard
+- `audit.html` / `audit.js` — Ep03 The Where You Actually Stand Audit
 - `style.css` — shared Bluhoneí brand styling (cream/plum/terra/gold
-  palette, card components, dimension-breakdown dots) used by both tools
+  palette, card components, dimension-breakdown dots, audit checklist/
+  toggle/modal/results-column components) used by all three tools
 - `netlify.toml` — Netlify deploy configuration

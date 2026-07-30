@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Where You Actually Stand Audit · Bluhoneí</title>
+<meta name="description" content="A private financial inventory from Bluhoneí — 21 items, three states, no scoring. Just a clear look at where things actually are.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <main class="stage" id="stage">
+
+    <!-- INTRO -->
+    <section class="screen intro-screen" id="screen-intro" data-screen="intro">
+      <p class="eyebrow">A Bluhoneí Audit</p>
+      <h1 class="headline">The Where You Actually Stand <em>Audit</em></h1>
+      <p class="intro-copy">
+        Not a test. Not a judgment. Just a clear look at where things
+        actually are.
+      </p>
+      <p class="intro-copy intro-copy--small">
+        21 items, sorted into 7 categories. Go at your own pace — nothing
+        here is scored.
+      </p>
+      <button class="btn btn-primary" id="btn-start" type="button">Begin the Audit</button>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section class="screen audit-screen" id="screen-audit" data-screen="audit" hidden>
+      <div class="audit-checklist-intro">
+        <p class="eyebrow">A Bluhoneí Audit</p>
+        <p class="audit-checklist-note">
+          Mark each item as it actually stands today. You can change any
+          answer before you see your results.
+        </p>
+      </div>
+
+      <div id="audit-categories"></div>
+
+      <div class="audit-actions">
+        <button class="btn btn-primary" id="btn-see-audit" type="button">See My Audit</button>
+        <p class="audit-progress-note" id="audit-progress-note"></p>
+      </div>
+    </section>
+
+    <!-- RESULTS + EMAIL CAPTURE -->
+    <section class="screen results-screen" id="screen-results" data-screen="results" hidden>
+
+      <div class="audit-results-intro">
+        <p class="eyebrow">Your Audit</p>
+        <h2 class="audit-results-heading">Here's where things actually stand.</h2>
+      </div>
+
+      <div class="audit-columns">
+        <div class="audit-column audit-column--current">
+          <p class="audit-column-title">Current</p>
+          <ul class="audit-column-list" id="col-current"></ul>
+        </div>
+        <div class="audit-column audit-column--attention">
+          <p class="audit-column-title">Needs Attention</p>
+          <ul class="audit-column-list" id="col-attention"></ul>
+        </div>
+        <div class="audit-column audit-column--avoided">
+          <p class="audit-column-title">Avoided</p>
+          <ul class="audit-column-list" id="col-avoided"></ul>
+        </div>
+      </div>
+
+      <div class="next-step" id="next-step-block">
+        <p class="next-step-label">Your Most Important Next Step</p>
+        <p class="next-step-text" id="next-step-text"></p>
+      </div>
+
+      <p class="audit-privacy-note">
+        This audit is private. Nothing here is shared unless you choose to
+        send it to yourself.
+      </p>
+
+      <button class="btn btn-text btn-back-to-checklist" id="btn-back-to-checklist" type="button">&larr; Back to checklist</button>
+
+      <div class="email-capture" id="email-capture">
+        <p class="eyebrow">One More Thing</p>
+        <h3 class="email-headline">Want your audit saved to your inbox?</h3>
+        <p class="email-copy">
+          We'll send you a copy of your results — yours to keep, revisit,
+          and build from.
+        </p>
+
+        <!--
+          FLODESK EMBED PLACEHOLDER
+          ---------------------------------------------------------
+          Replace everything inside #flodesk-embed-container with this
+          tool's Flodesk form embed code (Flodesk > Forms > [Your Form] >
+          Embed > Copy Code), plus the Flodesk universal loader script in
+          <head> (see index.html for the pattern used on the Ep01 tool).
+          Until then, a lightweight fallback form is shown so the flow is
+          fully demoable. Note: this form is email-only, no name field,
+          per the Ep03 brief.
+        -->
+        <div id="flodesk-embed-container" class="flodesk-embed-container">
+          <form class="email-form" id="email-form">
+            <div class="form-row">
+              <label class="sr-only" for="email-address">Email address</label>
+              <input class="form-input" type="email" id="email-address" name="email" placeholder="Email address" autocomplete="email" required>
+            </div>
+            <button class="btn btn-primary btn-full" type="submit">Send my audit</button>
+          </form>
+          <p class="email-disclaimer">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+
+        <div class="email-success" id="email-success" hidden>
+          <p>Your audit is on the way. Check your inbox shortly.</p>
+        </div>
+
+        <button class="btn btn-text btn-skip" id="btn-skip-email" type="button">No thanks, I'm all set</button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Bluhoneí &middot; bluhonei.com &middot; Consider This Newsletter</p>
+  </footer>
+
+</div>
+
+<div class="audit-modal-overlay" id="audit-modal-overlay" hidden>
+  <div class="audit-modal" role="dialog" aria-modal="true" aria-labelledby="audit-modal-text">
+    <p class="audit-modal-text" id="audit-modal-text"></p>
+    <div class="audit-modal-actions">
+      <button class="btn btn-primary btn-full" id="btn-modal-goback" type="button">Go back and mark them</button>
+      <button class="btn btn-text" id="btn-modal-continue" type="button">View my audit anyway</button>
+    </div>
+  </div>
+</div>
+
+<script src="audit.js"></script>
+</body>
+</html>
