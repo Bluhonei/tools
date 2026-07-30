@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Real Money Leak Worksheet · Bluhoneí</title>
+<meta name="description" content="A six-question worksheet from Bluhoneí to help women over 40 find out where their money is really leaking — and what to do about it.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <header class="site-header">
+    <img class="logo" src="assets/bluhonei-logo.png" alt="Bluhoneí" width="3000" height="628">
+  </header>
+
+  <main class="stage" id="stage">
+
+    <!-- INTRO -->
+    <section class="screen intro-screen" id="screen-intro" data-screen="intro">
+      <p class="eyebrow">A Bluhoneí Worksheet</p>
+      <h1 class="headline">The Real Money Leak <em>Worksheet</em></h1>
+      <p class="intro-copy">
+        Not another budget lecture. Six honest questions to help you find out
+        where your money is <em>really</em> going — and which pattern is
+        quietly running the show.
+      </p>
+      <p class="intro-copy intro-copy--small">
+        Takes about two minutes. No judgment, just clarity.
+      </p>
+      <button class="btn btn-primary" id="btn-start" type="button">Begin the Worksheet</button>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="screen quiz-screen" id="screen-quiz" data-screen="quiz" hidden>
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <p class="progress-label" id="progress-label">Question 1 of 6</p>
+
+      <h2 class="question-text" id="question-text"></h2>
+
+      <div class="options" id="options-list" role="group" aria-label="Answer options"></div>
+
+      <div class="quiz-nav">
+        <button class="btn btn-text" id="btn-back" type="button">&larr; Back</button>
+      </div>
+    </section>
+
+    <!-- RESULTS + EMAIL CAPTURE -->
+    <section class="screen results-screen" id="screen-results" data-screen="results" hidden>
+
+      <div class="results-block">
+        <p class="eyebrow">Your Result</p>
+        <h2 class="profile-name" id="profile-name"></h2>
+        <p class="profile-description" id="profile-description"></p>
+
+        <div class="next-step" id="next-step-block">
+          <p class="next-step-label">Your next step</p>
+          <p class="next-step-text" id="next-step-text"></p>
+        </div>
+
+        <button class="btn btn-text btn-retake" id="btn-retake" type="button">Retake the worksheet</button>
+      </div>
+
+      <div class="email-capture" id="email-capture">
+        <p class="eyebrow">One More Thing</p>
+        <h3 class="email-headline">Want a copy of your results sent to your inbox?</h3>
+        <p class="email-copy">
+          We'll send your profile and next step straight to your email, so
+          it's there when you're ready to act on it.
+        </p>
+
+        <!--
+          FLODESK EMBED PLACEHOLDER
+          ---------------------------------------------------------
+          Replace everything inside #flodesk-embed-container with your
+          Flodesk form embed code (Flodesk > Forms > [Your Form] > Embed
+          > Copy Code). Until then, a lightweight fallback form is shown
+          so the flow is fully demoable.
+        -->
+        <div id="flodesk-embed-container" class="flodesk-embed-container">
+          <form class="email-form" id="email-form">
+            <div class="form-row">
+              <label class="sr-only" for="email-name">First name</label>
+              <input class="form-input" type="text" id="email-name" name="name" placeholder="First name" autocomplete="given-name" required>
+            </div>
+            <div class="form-row">
+              <label class="sr-only" for="email-address">Email address</label>
+              <input class="form-input" type="email" id="email-address" name="email" placeholder="Email address" autocomplete="email" required>
+            </div>
+            <button class="btn btn-primary btn-full" type="submit">Send my results</button>
+          </form>
+          <p class="email-disclaimer">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+
+        <div class="email-success" id="email-success" hidden>
+          <p>Your results are on the way. Check your inbox shortly.</p>
+        </div>
+
+        <button class="btn btn-text btn-skip" id="btn-skip-email" type="button">No thanks, I'm all set</button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Bluhoneí &middot; bluhonei.com &middot; Consider This Newsletter</p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
