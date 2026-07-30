@@ -166,6 +166,13 @@ body {
   pointer-events: none;
 }
 
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 /* Progress */
 .progress-track {
   width: 100%;
@@ -750,6 +757,191 @@ body {
   margin: 0 auto 30px;
 }
 
+/* Summer Spending Worksheet (Ep04) */
+.worksheet-screen {
+  padding-bottom: 90px;
+}
+
+.step-card {
+  background: var(--white);
+  border: 1px solid rgba(74, 31, 43, 0.12);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.step-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: var(--plum);
+  margin: 0 0 10px;
+}
+
+.step-instruction {
+  font-size: 0.96rem;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+
+.step-note {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin: 10px 0 0;
+}
+
+.dollar-field {
+  margin-bottom: 4px;
+}
+
+.bucket-field {
+  margin-bottom: 22px;
+}
+
+.bucket-field:last-of-type {
+  margin-bottom: 4px;
+}
+
+.bucket-label {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.94rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.bucket-description {
+  font-size: 0.82rem;
+  opacity: 0.7;
+  margin: 0 0 10px;
+}
+
+.live-calc {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(74, 31, 43, 0.1);
+}
+
+.live-calc-total {
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--plum);
+  font-variant-numeric: tabular-nums;
+}
+
+.live-calc-message {
+  margin: 10px 0 0;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.live-calc-message--red {
+  color: var(--state-avoided);
+}
+
+.live-calc-message--green {
+  color: var(--state-current);
+}
+
+.live-calc-message--amber {
+  color: var(--state-attention);
+}
+
+.live-calc-message--gold {
+  color: var(--terra);
+}
+
+.summer-cta-bar {
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(to top, var(--bg-cream) 65%, rgba(251, 248, 244, 0));
+  padding: 22px 0 12px;
+  text-align: center;
+}
+
+.summer-cta-bar .btn-primary {
+  width: 100%;
+}
+
+.summer-card {
+  background: var(--white);
+  border: 1px solid rgba(74, 31, 43, 0.12);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.summer-card-label {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--terra);
+  margin: 0 0 12px;
+}
+
+.summer-card-amount {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--plum);
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.summer-card-text {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+
+.summer-card-text--green {
+  color: var(--state-current);
+}
+
+.summer-card-text--amber {
+  color: var(--state-attention);
+}
+
+.bucket-line-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 0.94rem;
+  font-variant-numeric: tabular-nums;
+  border-bottom: 1px solid rgba(74, 31, 43, 0.08);
+}
+
+.bucket-line-item:first-of-type {
+  padding-top: 0;
+}
+
+.bucket-line-item--total {
+  border-bottom: none;
+  border-top: 1px solid rgba(74, 31, 43, 0.15);
+  font-weight: 700;
+  color: var(--plum);
+  margin-top: 4px;
+}
+
+.editorial-line {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--plum);
+  text-align: center;
+  max-width: 480px;
+  margin: 10px auto 30px;
+}
+
 /* Responsive */
 @media (max-width: 480px) {
   .app-shell {
@@ -788,6 +980,23 @@ body {
   .audit-toggle {
     font-size: 0.7rem;
     padding: 6px 10px;
+  }
+
+  .step-card,
+  .summer-card {
+    padding: 18px 16px;
+  }
+
+  .step-title {
+    font-size: 1.15rem;
+  }
+
+  .summer-card-amount {
+    font-size: 1.5rem;
+  }
+
+  .editorial-line {
+    font-size: 1rem;
   }
 
   .btn-primary {

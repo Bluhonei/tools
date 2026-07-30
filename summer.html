@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Summer Spending Worksheet · Bluhoneí</title>
+<meta name="description" content="A live summer budget planner from Bluhoneí — name your summer number, cap your spending buckets, and see if your plan is realistic before the season starts.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <main class="stage" id="stage">
+
+    <!-- INTRO -->
+    <section class="screen intro-screen" id="screen-intro" data-screen="intro">
+      <p class="eyebrow">A Bluhoneí Worksheet</p>
+      <h1 class="headline">The Summer Spending <em>Worksheet</em></h1>
+      <p class="intro-copy">
+        Name the number before the season names it for you.
+      </p>
+      <button class="btn btn-primary" id="btn-start" type="button">Begin the Worksheet</button>
+    </section>
+
+    <!-- WORKSHEET -->
+    <section class="screen worksheet-screen" id="screen-worksheet" data-screen="worksheet" hidden>
+
+      <!-- STEP 1 -->
+      <div class="step-card">
+        <p class="eyebrow">Step 1</p>
+        <h2 class="step-title">Your Summer Number</h2>
+        <p class="step-instruction">
+          What's the total you're willing to spend across the entire
+          summer — June through August?
+        </p>
+        <div class="dollar-field">
+          <label class="sr-only" for="summer-number">Your Summer Number</label>
+          <input class="form-input" type="number" id="summer-number" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+        <p class="step-note">This is your ceiling. Not a budget line. The whole season.</p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-card">
+        <p class="eyebrow">Step 2</p>
+        <h2 class="step-title">Cap Each Bucket</h2>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="bucket-calendar">Calendar Costs</label>
+          <p class="bucket-description">
+            Weddings, birthdays, graduations, trips, group dinners,
+            hosting, social obligations
+          </p>
+          <input class="form-input" type="number" id="bucket-calendar" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="bucket-motion">Life in Motion Costs</label>
+          <p class="bucket-description">
+            Transportation, clothing, beauty, childcare, pet care, and
+            expenses created by being out more
+          </p>
+          <input class="form-input" type="number" id="bucket-motion" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="bucket-heat">Heat + Convenience Costs</label>
+          <p class="bucket-description">
+            Delivery, takeout, rideshares, cooling costs, drinks,
+            convenience purchases
+          </p>
+          <input class="form-input" type="number" id="bucket-heat" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="live-calc">
+          <p class="live-calc-total">Your bucket total: <span id="bucket-total-amount">$0</span></p>
+          <p class="live-calc-message" id="bucket-compare-message" hidden></p>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-card">
+        <p class="eyebrow">Step 3</p>
+        <h2 class="step-title">Your Advance No</h2>
+        <p class="step-instruction">
+          Name one expense, invitation, or obligation you will decline
+          this summer — before the pressure arrives. Decided now, not
+          in the moment.
+        </p>
+        <div class="dollar-field">
+          <label class="sr-only" for="advance-no">Your Advance No</label>
+          <input class="form-input" type="text" id="advance-no" placeholder="e.g. Unplanned overnight trips, destination bachelorette parties, group gifts over $50">
+        </div>
+        <p class="step-note">You only need one. The point is to decide it now.</p>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step-card">
+        <p class="eyebrow">Step 4</p>
+        <h2 class="step-title">What Your Budget Can Actually Absorb</h2>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="monthly-income">What is your average monthly take-home income?</label>
+          <input class="form-input" type="number" id="monthly-income" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="monthly-fixed">What are your average monthly fixed costs?</label>
+          <p class="bucket-description">
+            Rent/mortgage, utilities, insurance, subscriptions, debt
+            payments
+          </p>
+          <input class="form-input" type="number" id="monthly-fixed" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="live-calc">
+          <p class="live-calc-total">Your available summer discretionary: <span id="reality-amount">$0</span></p>
+          <p class="live-calc-message" id="reality-compare-message" hidden></p>
+        </div>
+      </div>
+
+      <div class="summer-cta-bar">
+        <button class="btn btn-primary" id="btn-see-plan" type="button" disabled>See My Summer Plan</button>
+      </div>
+
+    </section>
+
+    <!-- RESULTS + EMAIL CAPTURE -->
+    <section class="screen results-screen" id="screen-results" data-screen="results" hidden>
+
+      <div class="audit-results-intro">
+        <p class="eyebrow">Your Summer Plan</p>
+      </div>
+
+      <div class="summer-card">
+        <p class="summer-card-label">Your Summer Number</p>
+        <p class="summer-card-amount" id="card-summer-number">$0</p>
+      </div>
+
+      <div class="summer-card">
+        <p class="summer-card-label">Bucket Breakdown</p>
+        <div class="bucket-line-item">
+          <span>Calendar Costs</span>
+          <span id="card-bucket-calendar">$0</span>
+        </div>
+        <div class="bucket-line-item">
+          <span>Life in Motion</span>
+          <span id="card-bucket-motion">$0</span>
+        </div>
+        <div class="bucket-line-item">
+          <span>Heat + Convenience</span>
+          <span id="card-bucket-heat">$0</span>
+        </div>
+        <div class="bucket-line-item bucket-line-item--total">
+          <span>Total</span>
+          <span id="card-bucket-total">$0</span>
+        </div>
+      </div>
+
+      <div class="summer-card">
+        <p class="summer-card-label">Your Advance No</p>
+        <p class="summer-card-text" id="card-advance-no"></p>
+      </div>
+
+      <div class="summer-card">
+        <p class="summer-card-label">Reality Check</p>
+        <p class="summer-card-text" id="card-reality-check"></p>
+      </div>
+
+      <p class="editorial-line" id="editorial-line"></p>
+
+      <button class="btn btn-text btn-back-to-checklist" id="btn-back-to-worksheet" type="button">&larr; Edit your numbers</button>
+
+      <div class="email-capture" id="email-capture">
+        <p class="eyebrow">One More Thing</p>
+        <h3 class="email-headline">Want your summer plan in your inbox?</h3>
+        <p class="email-copy">
+          We'll send you a copy — yours to refer back to when the next
+          invitation arrives.
+        </p>
+
+        <!--
+          FLODESK EMBED PLACEHOLDER
+          ---------------------------------------------------------
+          Replace everything inside #flodesk-embed-container with this
+          tool's Flodesk form embed code (Flodesk > Forms > [Your Form] >
+          Embed > Copy Code), plus the Flodesk universal loader script in
+          <head> (see index.html for the pattern used on the Ep01 tool).
+          Until then, a lightweight fallback form is shown so the flow is
+          fully demoable. Note: this form is email-only, no name field.
+        -->
+        <div id="flodesk-embed-container" class="flodesk-embed-container">
+          <form class="email-form" id="email-form">
+            <div class="form-row">
+              <label class="sr-only" for="email-address">Email address</label>
+              <input class="form-input" type="email" id="email-address" name="email" placeholder="Email address" autocomplete="email" required>
+            </div>
+            <button class="btn btn-primary btn-full" type="submit">Send my plan</button>
+          </form>
+          <p class="email-disclaimer">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+
+        <div class="email-success" id="email-success" hidden>
+          <p>Your plan is on the way. Check your inbox shortly.</p>
+        </div>
+
+        <button class="btn btn-text btn-skip" id="btn-skip-email" type="button">No thanks, I'm all set</button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Bluhoneí &middot; bluhonei.com &middot; Consider This Newsletter</p>
+  </footer>
+
+</div>
+
+<script src="summer.js"></script>
+</body>
+</html>

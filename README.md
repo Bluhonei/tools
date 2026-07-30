@@ -20,20 +20,26 @@ tone, banned constructions, and result-summary examples.
 - **The Where You Actually Stand Audit** (`audit.html`) — Ep03 companion.
   A private, unscored inventory: 21 items across 7 categories, all
   visible at once, each marked Current / Needs Attention / Avoided. No
-  quiz flow — results are a three-column visual map (collapsing to
-  stacked columns on mobile) plus one prioritized next step.
+  quiz flow — results are a synthesized pattern summary plus one
+  prioritized next step.
+- **The Summer Spending Worksheet** (`summer.html`) — Ep04 companion. A
+  live budget planner, not a quiz or checklist: the user enters real
+  numbers (a summer spending ceiling, three spending buckets, an
+  "advance no," monthly income/fixed costs) and every calculation
+  updates live as she types. Results show whether the plan fits her
+  actual discretionary income.
 
 Ep01 and Ep02 share the same quiz structure (intro → one question at a
-time with a progress bar → results → email capture). Ep03 is
-intentionally different — an all-at-once checklist with no scoring — but
-reuses the same brand stylesheet, card components, and footer for visual
-consistency. All three keep separate JS files since their data/logic
-differ.
+time with a progress bar → results → email capture). Ep03 and Ep04 are
+each a different interaction pattern (an all-at-once checklist; a live
+numeric calculator) — all four reuse the same brand stylesheet, card
+components, and footer for visual consistency, but keep separate JS
+files since their data/logic differ.
 
 ## Local preview
 
-Open `index.html`, `scorecard.html`, or `audit.html` directly in a
-browser, or serve the folder locally:
+Open `index.html`, `scorecard.html`, `audit.html`, or `summer.html`
+directly in a browser, or serve the folder locally:
 
 ```
 npx serve .
@@ -47,8 +53,9 @@ npx serve .
 3. Build settings are picked up automatically from `netlify.toml`:
    - Build command: *(none)*
    - Publish directory: `.`
-4. Deploy. `index.html`, `scorecard.html`, and `audit.html` are all served
-   as static pages at their respective paths.
+4. Deploy. `index.html`, `scorecard.html`, `audit.html`, and
+   `summer.html` are all served as static pages at their respective
+   paths.
 
 ## Wiring up email capture
 
@@ -56,10 +63,11 @@ npx serve .
 form embedded, along with the required Flodesk universal loader script
 in `<head>`.
 
-**The Other Kind of Rich Scorecard** (`scorecard.html`) and **The Where
-You Actually Stand Audit** (`audit.html`) still ship with the
-lightweight fallback form (same pattern the Worksheet originally used)
-so each flow is demoable end to end. To go live for either:
+**The Other Kind of Rich Scorecard** (`scorecard.html`), **The Where You
+Actually Stand Audit** (`audit.html`), and **The Summer Spending
+Worksheet** (`summer.html`) still ship with the lightweight fallback
+form (same pattern the Worksheet originally used) so each flow is
+demoable end to end. To go live for any of them:
 
 1. In Flodesk, open the form for that tool and copy its embed code.
    (Note: the Audit's form is email-only, no name field, by design.)
@@ -77,8 +85,10 @@ so each flow is demoable end to end. To go live for either:
 - `index.html` / `script.js` — Ep01 Real Money Leak Worksheet
 - `scorecard.html` / `scorecard.js` — Ep02 The Other Kind of Rich Scorecard
 - `audit.html` / `audit.js` — Ep03 The Where You Actually Stand Audit
+- `summer.html` / `summer.js` — Ep04 The Summer Spending Worksheet
 - `style.css` — shared Bluhoneí brand styling (cream/plum/terra/gold
   palette, card components, dimension-breakdown dots, audit checklist/
-  toggle/modal/results components) used by all three tools
+  toggle/modal components, summer worksheet step cards/live-calc/result
+  cards) used by all four tools
 - `BRAND_VOICE.md` — copy/voice reference; read before writing any UI text
 - `netlify.toml` — Netlify deploy configuration
