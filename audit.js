@@ -7,14 +7,17 @@
       items: [
         {
           text: "I know my current checking/savings balance right now",
+          observation: "Your current balance isn't something you can name right now.",
           action: "Open your banking app right now and write the number down. That's the only starting point that's real."
         },
         {
           text: "I have an emergency fund separate from my everyday checking",
+          observation: "Your emergency fund isn't in place yet.",
           action: "Open a separate savings account today — most banks allow this online in under five minutes. Name it Emergency Fund."
         },
         {
           text: "I know how many months of expenses that fund covers",
+          observation: "How long your emergency fund would carry you is still unknown.",
           action: "Divide your emergency fund balance by your monthly fixed costs. That's your number."
         }
       ]
@@ -24,14 +27,17 @@
       items: [
         {
           text: "I know every debt I carry and the current balance",
+          observation: "Your full debt picture hasn't been mapped out yet.",
           action: "Pull your free credit report at annualcreditreport.com — it lists every debt in one place. Takes ten minutes."
         },
         {
           text: "I know the interest rate on each debt",
+          observation: "The interest rates on your debt are still unclear.",
           action: "Log into each account or call the number on the back of the card. Write the rate next to each balance."
         },
         {
           text: "I know the payoff timeline at my current payment pace",
+          observation: "Your debt payoff timeline hasn't been worked out yet.",
           action: "Use a free debt payoff calculator — search \"debt payoff calculator\" and enter your balance, rate, and monthly payment."
         }
       ]
@@ -41,14 +47,17 @@
       items: [
         {
           text: "I know my current salary or income to the dollar",
+          observation: "Your exact income isn't fully clear to you right now.",
           action: "Write your exact take-home and gross income on paper right now. If you have to estimate, that is the problem."
         },
         {
           text: "I have negotiated my salary or rate within the last two years",
+          observation: "Your income negotiation is overdue.",
           action: "Search your title on LinkedIn Salary or Glassdoor today. Know the number before the next conversation."
         },
         {
           text: "My income has kept pace with how my lifestyle and costs have grown",
+          observation: "Your income hasn't kept pace with your rising costs.",
           action: "Add up your fixed monthly costs and compare to what you earned three years ago. The gap tells you what the number needs to be."
         }
       ]
@@ -58,14 +67,17 @@
       items: [
         {
           text: "I know the current balance of my retirement account(s)",
+          observation: "Your retirement balance hasn't been checked in a while.",
           action: "Log into your retirement account today — just to see it. You do not have to do anything else yet."
         },
         {
           text: "I know my current contribution rate",
+          observation: "Your contribution rate is still unknown to you.",
           action: "Find the contribution percentage in your benefits portal. If it is below 10%, that is the gap to close first."
         },
         {
           text: "I have reviewed my retirement account in the last 12 months",
+          observation: "Your retirement account is overdue for a review.",
           action: "Set a calendar reminder for 30 minutes this week to review your allocation. That is all it takes."
         }
       ]
@@ -75,14 +87,17 @@
       items: [
         {
           text: "I have estimated the monthly cost of any caregiving I provide",
+          observation: "The true cost of your caregiving hasn't been counted yet.",
           action: "Write down every caregiving task you do in a week and estimate the hours. Multiply by your hourly rate. That is what it costs."
         },
         {
           text: "That cost has a real line in my financial plan",
+          observation: "Your caregiving costs don't have a place in your budget yet.",
           action: "Add a line called Caregiving to your monthly budget — even if the number is an estimate. Named costs get managed."
         },
         {
           text: "I have had the money conversation with anyone it financially involves",
+          observation: "The money conversation about caregiving is still unspoken.",
           action: "Choose one person this involves and send a message this week asking to talk. You do not need a plan to start the conversation."
         }
       ]
@@ -92,14 +107,17 @@
       items: [
         {
           text: "I have a will or estate documents in place",
+          observation: "Your estate documents aren't in place yet.",
           action: "Search Trust and Will or Tomorrow online — both have options under $200 and take about 20 minutes to complete."
         },
         {
           text: "My beneficiary designations are current and reflect my life today",
+          observation: "Your beneficiary designations may be out of date.",
           action: "Log into every retirement account and insurance policy today and check the beneficiary field. This takes fifteen minutes."
         },
         {
           text: "My insurance coverage fits my current life — not a prior version of it",
+          observation: "Your insurance coverage may no longer fit your life.",
           action: "Pull out your current policy and check the coverage date and amounts. If it is more than two years old, call your provider."
         }
       ]
@@ -109,14 +127,17 @@
       items: [
         {
           text: "I know the one financial conversation I have been avoiding",
+          observation: "There's a financial conversation you've been avoiding.",
           action: "Write the conversation topic on paper and identify the one person it involves. Name the date you will have it — even if that date is two weeks away."
         },
         {
           text: "I know the one number I have not looked at recently",
+          observation: "There's a number you've been avoiding looking at.",
           action: "Open it today. Just look. You do not have to act on it yet — but looking changes everything."
         },
         {
           text: "I know the one thing I keep meaning to do but have not done",
+          observation: "There's a financial task you keep putting off.",
           action: "Put it on your calendar for this week with a 30-minute block. That is the entire next step."
         }
       ]
@@ -138,6 +159,7 @@
         id: "c" + categoryIndex + "i" + itemIndex,
         categoryName: category.name,
         text: itemData.text,
+        observation: itemData.observation,
         action: itemData.action,
         state: null
       });
@@ -160,7 +182,8 @@
   var btnModalGoBack = document.getElementById("btn-modal-goback");
   var btnModalContinue = document.getElementById("btn-modal-continue");
 
-  var colCurrent = document.getElementById("col-current");
+  var sectionAttention = document.getElementById("section-attention");
+  var sectionAvoided = document.getElementById("section-avoided");
   var colAttention = document.getElementById("col-attention");
   var colAvoided = document.getElementById("col-avoided");
   var nextStepText = document.getElementById("next-step-text");
@@ -247,21 +270,19 @@
     updateProgressNote();
   }
 
-  function renderColumn(listEl, stateKey) {
+  function renderSection(sectionEl, listEl, stateKey) {
     listEl.innerHTML = "";
     var matches = ITEMS.filter(function (item) { return item.state === stateKey; });
 
     if (matches.length === 0) {
-      var empty = document.createElement("li");
-      empty.className = "audit-column-empty";
-      empty.textContent = "Nothing marked here.";
-      listEl.appendChild(empty);
+      sectionEl.hidden = true;
       return;
     }
 
+    sectionEl.hidden = false;
     matches.forEach(function (item) {
       var li = document.createElement("li");
-      li.className = "audit-column-item";
+      li.className = "audit-section-item";
       li.textContent = item.text;
       listEl.appendChild(li);
     });
@@ -274,7 +295,7 @@
     }
 
     if (priorityItem) {
-      return { text: priorityItem.text + ".", action: priorityItem.action };
+      return { text: priorityItem.observation, action: priorityItem.action };
     }
 
     return {
@@ -284,9 +305,8 @@
   }
 
   function renderResults() {
-    renderColumn(colCurrent, "current");
-    renderColumn(colAttention, "attention");
-    renderColumn(colAvoided, "avoided");
+    renderSection(sectionAttention, colAttention, "attention");
+    renderSection(sectionAvoided, colAvoided, "avoided");
 
     var next = computeNextStep();
     nextStepText.textContent = next.text;

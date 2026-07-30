@@ -21,10 +21,6 @@
         Not a test. Not a judgment. Just a clear look at where things
         actually are.
       </p>
-      <p class="intro-copy intro-copy--small">
-        21 items, sorted into 7 categories. Go at your own pace — nothing
-        here is scored.
-      </p>
       <button class="btn btn-primary" id="btn-start" type="button">Begin the Audit</button>
     </section>
 
@@ -54,19 +50,16 @@
         <h2 class="audit-results-heading">Here's where things actually stand.</h2>
       </div>
 
-      <div class="audit-columns">
-        <div class="audit-column audit-column--current">
-          <p class="audit-column-title">Current</p>
-          <ul class="audit-column-list" id="col-current"></ul>
-        </div>
-        <div class="audit-column audit-column--attention">
-          <p class="audit-column-title">Needs Attention</p>
-          <ul class="audit-column-list" id="col-attention"></ul>
-        </div>
-        <div class="audit-column audit-column--avoided">
-          <p class="audit-column-title">Avoided</p>
-          <ul class="audit-column-list" id="col-avoided"></ul>
-        </div>
+      <p class="audit-attention-note">Here's where your attention belongs.</p>
+
+      <div class="audit-section audit-section--attention" id="section-attention">
+        <p class="audit-section-title">Needs Attention</p>
+        <ul class="audit-section-list" id="col-attention"></ul>
+      </div>
+
+      <div class="audit-section audit-section--avoided" id="section-avoided">
+        <p class="audit-section-title">Avoided</p>
+        <ul class="audit-section-list" id="col-avoided"></ul>
       </div>
 
       <div class="next-step" id="next-step-block">
