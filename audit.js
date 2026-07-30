@@ -5,57 +5,120 @@
     {
       name: "Cash & Liquidity",
       items: [
-        "I know my current checking/savings balance right now",
-        "I have an emergency fund separate from my everyday checking",
-        "I know how many months of expenses that fund covers"
+        {
+          text: "I know my current checking/savings balance right now",
+          action: "Open your banking app right now and write the number down. That's the only starting point that's real."
+        },
+        {
+          text: "I have an emergency fund separate from my everyday checking",
+          action: "Open a separate savings account today — most banks allow this online in under five minutes. Name it Emergency Fund."
+        },
+        {
+          text: "I know how many months of expenses that fund covers",
+          action: "Divide your emergency fund balance by your monthly fixed costs. That's your number."
+        }
       ]
     },
     {
       name: "Debt",
       items: [
-        "I know every debt I carry and the current balance",
-        "I know the interest rate on each debt",
-        "I know the payoff timeline at my current payment pace"
+        {
+          text: "I know every debt I carry and the current balance",
+          action: "Pull your free credit report at annualcreditreport.com — it lists every debt in one place. Takes ten minutes."
+        },
+        {
+          text: "I know the interest rate on each debt",
+          action: "Log into each account or call the number on the back of the card. Write the rate next to each balance."
+        },
+        {
+          text: "I know the payoff timeline at my current payment pace",
+          action: "Use a free debt payoff calculator — search \"debt payoff calculator\" and enter your balance, rate, and monthly payment."
+        }
       ]
     },
     {
       name: "Income",
       items: [
-        "I know my current salary or income to the dollar",
-        "I have negotiated my salary or rate within the last two years",
-        "My income has kept pace with how my lifestyle and costs have grown"
+        {
+          text: "I know my current salary or income to the dollar",
+          action: "Write your exact take-home and gross income on paper right now. If you have to estimate, that is the problem."
+        },
+        {
+          text: "I have negotiated my salary or rate within the last two years",
+          action: "Search your title on LinkedIn Salary or Glassdoor today. Know the number before the next conversation."
+        },
+        {
+          text: "My income has kept pace with how my lifestyle and costs have grown",
+          action: "Add up your fixed monthly costs and compare to what you earned three years ago. The gap tells you what the number needs to be."
+        }
       ]
     },
     {
       name: "Retirement",
       items: [
-        "I know the current balance of my retirement account(s)",
-        "I know my current contribution rate",
-        "I have reviewed my retirement account in the last 12 months"
+        {
+          text: "I know the current balance of my retirement account(s)",
+          action: "Log into your retirement account today — just to see it. You do not have to do anything else yet."
+        },
+        {
+          text: "I know my current contribution rate",
+          action: "Find the contribution percentage in your benefits portal. If it is below 10%, that is the gap to close first."
+        },
+        {
+          text: "I have reviewed my retirement account in the last 12 months",
+          action: "Set a calendar reminder for 30 minutes this week to review your allocation. That is all it takes."
+        }
       ]
     },
     {
       name: "Caregiving & Hidden Costs",
       items: [
-        "I have estimated the monthly cost of any caregiving I provide",
-        "That cost has a real line in my financial plan",
-        "I have had the money conversation with anyone it financially involves"
+        {
+          text: "I have estimated the monthly cost of any caregiving I provide",
+          action: "Write down every caregiving task you do in a week and estimate the hours. Multiply by your hourly rate. That is what it costs."
+        },
+        {
+          text: "That cost has a real line in my financial plan",
+          action: "Add a line called Caregiving to your monthly budget — even if the number is an estimate. Named costs get managed."
+        },
+        {
+          text: "I have had the money conversation with anyone it financially involves",
+          action: "Choose one person this involves and send a message this week asking to talk. You do not need a plan to start the conversation."
+        }
       ]
     },
     {
       name: "Protection & Documents",
       items: [
-        "I have a will or estate documents in place",
-        "My beneficiary designations are current and reflect my life today",
-        "My insurance coverage fits my current life — not a prior version of it"
+        {
+          text: "I have a will or estate documents in place",
+          action: "Search Trust and Will or Tomorrow online — both have options under $200 and take about 20 minutes to complete."
+        },
+        {
+          text: "My beneficiary designations are current and reflect my life today",
+          action: "Log into every retirement account and insurance policy today and check the beneficiary field. This takes fifteen minutes."
+        },
+        {
+          text: "My insurance coverage fits my current life — not a prior version of it",
+          action: "Pull out your current policy and check the coverage date and amounts. If it is more than two years old, call your provider."
+        }
       ]
     },
     {
       name: "The Unfinished Conversation",
       items: [
-        "I know the one financial conversation I have been avoiding",
-        "I know the one number I have not looked at recently",
-        "I know the one thing I keep meaning to do but have not done"
+        {
+          text: "I know the one financial conversation I have been avoiding",
+          action: "Write the conversation topic on paper and identify the one person it involves. Name the date you will have it — even if that date is two weeks away."
+        },
+        {
+          text: "I know the one number I have not looked at recently",
+          action: "Open it today. Just look. You do not have to act on it yet — but looking changes everything."
+        },
+        {
+          text: "I know the one thing I keep meaning to do but have not done",
+          action: "Put it on your calendar for this week with a 30-minute block. That is the entire next step."
+        }
       ]
     }
   ];
@@ -70,11 +133,12 @@
   // "next step" priority order.
   var ITEMS = [];
   CATEGORIES.forEach(function (category, categoryIndex) {
-    category.items.forEach(function (text, itemIndex) {
+    category.items.forEach(function (itemData, itemIndex) {
       ITEMS.push({
         id: "c" + categoryIndex + "i" + itemIndex,
         categoryName: category.name,
-        text: text,
+        text: itemData.text,
+        action: itemData.action,
         state: null
       });
     });
@@ -100,6 +164,7 @@
   var colAttention = document.getElementById("col-attention");
   var colAvoided = document.getElementById("col-avoided");
   var nextStepText = document.getElementById("next-step-text");
+  var nextStepAction = document.getElementById("next-step-action");
   var btnBackToChecklist = document.getElementById("btn-back-to-checklist");
 
   var emailForm = document.getElementById("email-form");
@@ -144,7 +209,7 @@
       title.textContent = (categoryIndex + 1) + ". " + category.name;
       card.appendChild(title);
 
-      category.items.forEach(function (text, itemIndex) {
+      category.items.forEach(function (itemData, itemIndex) {
         var item = ITEMS[categoryIndex * 3 + itemIndex];
 
         var row = document.createElement("div");
@@ -153,7 +218,7 @@
 
         var label = document.createElement("span");
         label.className = "audit-item-text";
-        label.textContent = text;
+        label.textContent = item.text;
         row.appendChild(label);
 
         var toggles = document.createElement("span");
@@ -197,13 +262,7 @@
     matches.forEach(function (item) {
       var li = document.createElement("li");
       li.className = "audit-column-item";
-
-      var tag = document.createElement("span");
-      tag.className = "audit-item-category-tag";
-      tag.textContent = item.categoryName;
-
-      li.appendChild(tag);
-      li.appendChild(document.createTextNode(item.text));
+      li.textContent = item.text;
       listEl.appendChild(li);
     });
   }
@@ -215,17 +274,29 @@
     }
 
     if (priorityItem) {
-      return '“' + priorityItem.text + '.” That’s the one to start with.';
+      return { text: priorityItem.text + ".", action: priorityItem.action };
     }
 
-    return "Your foundation is solid. The next move is to schedule an annual review date so it stays that way.";
+    return {
+      text: "Your foundation is solid. The next move is to schedule an annual review date so it stays that way.",
+      action: null
+    };
   }
 
   function renderResults() {
     renderColumn(colCurrent, "current");
     renderColumn(colAttention, "attention");
     renderColumn(colAvoided, "avoided");
-    nextStepText.textContent = computeNextStep();
+
+    var next = computeNextStep();
+    nextStepText.textContent = next.text;
+    if (next.action) {
+      nextStepAction.textContent = next.action;
+      nextStepAction.hidden = false;
+    } else {
+      nextStepAction.textContent = "";
+      nextStepAction.hidden = true;
+    }
 
     emailForm.hidden = false;
     emailSuccess.hidden = true;
