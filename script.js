@@ -103,9 +103,8 @@
   var profileDescription = document.getElementById("profile-description");
   var nextStepText = document.getElementById("next-step-text");
 
-  var emailForm = document.getElementById("email-form");
-  var emailSuccess = document.getElementById("email-success");
   var flodeskContainer = document.getElementById("flodesk-embed-container");
+  var emailDisclaimer = document.getElementById("email-disclaimer");
   var btnSkipEmail = document.getElementById("btn-skip-email");
 
   function showScreen(el) {
@@ -210,10 +209,9 @@
     profileDescription.textContent = profile.description;
     nextStepText.textContent = profile.nextStep;
 
-    emailForm.hidden = false;
-    emailSuccess.hidden = true;
     if (flodeskContainer) flodeskContainer.hidden = false;
-    emailForm.reset();
+    if (emailDisclaimer) emailDisclaimer.hidden = false;
+    if (btnSkipEmail) btnSkipEmail.hidden = false;
 
     showScreen(screenResults);
   }
@@ -235,18 +233,9 @@
   btnBack.addEventListener("click", goBack);
   btnRetake.addEventListener("click", resetQuiz);
 
-  emailForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-    // TODO: Replace this handler with Flodesk's native form submission
-    // once the real embed code is dropped into #flodesk-embed-container.
-    emailForm.hidden = true;
-    emailSuccess.hidden = false;
-  });
-
   btnSkipEmail.addEventListener("click", function () {
     if (flodeskContainer) flodeskContainer.hidden = true;
-    emailForm.hidden = true;
-    emailSuccess.hidden = true;
+    if (emailDisclaimer) emailDisclaimer.hidden = true;
     btnSkipEmail.hidden = true;
   });
 

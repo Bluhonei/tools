@@ -358,15 +358,23 @@ body {
 .flodesk-embed-container {
   max-width: 400px;
   margin: 0 auto;
+  background: var(--white);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 22px;
+  font-family: var(--sans);
 }
 
-.email-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.form-input {
+/*
+  Best-effort styling for the embedded Flodesk form, in case Flodesk
+  renders plain input/button/label tags inside the container. If Flodesk
+  instead scopes its markup with its own classes (or renders in an
+  iframe), these rules won't reach it — match the brand from inside the
+  Flodesk form designer instead: background #fbf8f4, button #4a1f2b,
+  accent #c47b63, borders/highlights #d9b783, headers in Georgia italic.
+*/
+.flodesk-embed-container input[type="text"],
+.flodesk-embed-container input[type="email"] {
   width: 100%;
   padding: 14px 16px;
   border-radius: var(--radius-sm);
@@ -375,29 +383,40 @@ body {
   font-family: var(--sans);
   font-size: 0.98rem;
   color: var(--text);
+  margin-bottom: 12px;
 }
 
-.form-input:focus {
+.flodesk-embed-container input[type="text"]:focus,
+.flodesk-embed-container input[type="email"]:focus {
   outline: none;
   border-color: var(--terra);
   box-shadow: 0 0 0 3px rgba(196, 123, 99, 0.15);
+}
+
+.flodesk-embed-container label {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.flodesk-embed-container button,
+.flodesk-embed-container input[type="submit"] {
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  background: var(--plum);
+  color: var(--bg-cream);
+  padding: 15px 34px;
+  cursor: pointer;
 }
 
 .email-disclaimer {
   font-size: 0.78rem;
   opacity: 0.6;
   margin: 14px 0 0;
-}
-
-.email-success {
-  max-width: 400px;
-  margin: 0 auto;
-  background: var(--white);
-  border: 1px solid var(--gold);
-  border-radius: var(--radius);
-  padding: 20px;
-  font-size: 0.98rem;
-  color: var(--plum);
 }
 
 .btn-skip {
