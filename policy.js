@@ -219,8 +219,9 @@
       " per year — across all requests combined.";
     resultSentence2.textContent = "I will not use " + joinList(phrases) +
       " for anyone else's emergency, regardless of how the ask is framed.";
-    resultSentence3.textContent = "Before agreeing to any financial request, I give myself " +
-      selectedWaiting.phrase + " before responding.";
+    resultSentence3.textContent = selectedWaiting.item === "case-by-case"
+      ? "Before agreeing to any financial request, I give myself time to decide — case by case."
+      : "Before agreeing to any financial request, I give myself " + selectedWaiting.phrase + " before responding.";
     resultSentence4.textContent = "When I need to say no, I say: '" + respPhrase + ".'";
 
     emailForm.hidden = false;
