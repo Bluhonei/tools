@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Reliability Policy · Bluhoneí</title>
+<meta name="description" content="A decision-builder from Bluhoneí — four decisions made now, so you don't have to make them under pressure. Builds a written Reliability Policy you can keep.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <main class="stage" id="stage">
+
+    <!-- INTRO -->
+    <section class="screen intro-screen" id="screen-intro" data-screen="intro">
+      <p class="eyebrow">A Bluhoneí Policy Builder</p>
+      <h1 class="headline">The Reliability <em>Policy</em></h1>
+      <p class="intro-copy">
+        Four decisions made now — so you don't have to make them under
+        pressure.
+      </p>
+      <button class="btn btn-primary" id="btn-start" type="button">Build My Policy</button>
+    </section>
+
+    <!-- BUILDER -->
+    <section class="screen worksheet-screen" id="screen-builder" data-screen="builder" hidden>
+
+      <!-- DECISION 1 -->
+      <div class="step-card">
+        <p class="eyebrow">Decision 1</p>
+        <h2 class="step-title">What's the maximum you're willing to give or lend — across all requests — in a calendar year?</h2>
+        <p class="decision-note decision-note--terra">No scorecard here. Just a number, decided in advance.</p>
+        <div class="bucket-field">
+          <label class="sr-only" for="help-number">Your help number</label>
+          <input class="form-input" type="number" id="help-number" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+        <p class="decision-note">The total across everyone — not per person.</p>
+      </div>
+
+      <!-- DECISION 2 -->
+      <div class="step-card">
+        <p class="eyebrow">Decision 2</p>
+        <h2 class="step-title">What will you not touch for someone else's emergency — no matter how the ask is framed?</h2>
+        <p class="step-instruction">Select all that apply.</p>
+
+        <div class="options" id="protected-options" role="group" aria-label="Protected lines">
+          <button class="option-card" type="button" data-item="emergency-fund">
+            <span class="option-marker option-marker--checkbox" aria-hidden="true"></span>
+            <span>My emergency fund</span>
+          </button>
+          <button class="option-card" type="button" data-item="retirement">
+            <span class="option-marker option-marker--checkbox" aria-hidden="true"></span>
+            <span>My retirement contributions</span>
+          </button>
+          <button class="option-card" type="button" data-item="floor-costs">
+            <span class="option-marker option-marker--checkbox" aria-hidden="true"></span>
+            <span>My monthly floor costs</span>
+          </button>
+          <button class="option-card" type="button" data-item="transition-fund">
+            <span class="option-marker option-marker--checkbox" aria-hidden="true"></span>
+            <span>My transition fund</span>
+          </button>
+          <button class="option-card" type="button" data-item="savings-goal">
+            <span class="option-marker option-marker--checkbox" aria-hidden="true"></span>
+            <span>A specific savings goal</span>
+          </button>
+        </div>
+
+        <div class="bucket-field" id="savings-goal-field" hidden>
+          <label class="bucket-label" for="savings-goal-text">What are you saving for?</label>
+          <input class="form-input" type="text" id="savings-goal-text" placeholder="e.g. a house down payment">
+        </div>
+      </div>
+
+      <!-- DECISION 3 -->
+      <div class="step-card">
+        <p class="eyebrow">Decision 3</p>
+        <h2 class="step-title">Before saying yes to any financial request, you wait:</h2>
+
+        <div class="options" id="waiting-options" role="group" aria-label="Waiting period">
+          <button class="option-card" type="button" data-item="24h" data-phrase="24 hours">
+            <span class="option-marker" aria-hidden="true"></span>
+            <span>24 hours</span>
+          </button>
+          <button class="option-card" type="button" data-item="48h" data-phrase="48 hours">
+            <span class="option-marker" aria-hidden="true"></span>
+            <span>48 hours</span>
+          </button>
+          <button class="option-card" type="button" data-item="1week" data-phrase="one week">
+            <span class="option-marker" aria-hidden="true"></span>
+            <span>One week</span>
+          </button>
+          <button class="option-card" type="button" data-item="case-by-case" data-phrase="case by case">
+            <span class="option-marker" aria-hidden="true"></span>
+            <span>I'll decide case by case</span>
+          </button>
+        </div>
+
+        <p class="decision-note">A waiting period is a pause that lets you answer from your policy, not your guilt.</p>
+      </div>
+
+      <!-- DECISION 4 -->
+      <div class="step-card">
+        <p class="eyebrow">Decision 4</p>
+        <h2 class="step-title">When the answer is no, you say:</h2>
+
+        <div class="options" id="response-options" role="group" aria-label="Default response">
+          <button class="option-card" type="button" data-item="resp1" data-phrase="I'm not able to help financially right now.">
+            <span class="option-marker" aria-hidden="true"></span>
+            <span>"I'm not able to help financially right now."</span>
+          </button>
+          <button class="option-card" type="button" data-item="resp2" data-phrase="I can't lend money, but I'm happy to help you think through options.">
+            <span class="option-marker" aria-hidden="true"></span>
+            <span>"I can't lend money, but I'm happy to help you think through options."</span>
+          </button>
+          <button class="option-card" type="button" data-item="resp3" data-phrase="That's not something I can do — I hope you find a solution.">
+            <span class="option-marker" aria-hidden="true"></span>
+            <span>"That's not something I can do — I hope you find a solution."</span>
+          </button>
+          <button class="option-card" type="button" data-item="custom">
+            <span class="option-marker" aria-hidden="true"></span>
+            <span>Write my own</span>
+          </button>
+        </div>
+
+        <div class="bucket-field" id="custom-response-field" hidden>
+          <label class="bucket-label" for="custom-response-text">Write the sentence you'd actually say</label>
+          <input class="form-input" type="text" id="custom-response-text" placeholder="Write the sentence you'd actually say...">
+        </div>
+
+        <p class="decision-note">You don't need a paragraph. One sentence, decided now.</p>
+      </div>
+
+      <!-- LIVE POLICY PREVIEW -->
+      <div class="step-card policy-preview" id="policy-preview">
+        <p class="policy-preview-ready-label" id="policy-ready-label" hidden>Your policy is ready.</p>
+        <p class="policy-preview-header">Your Reliability Policy</p>
+        <p class="policy-preview-subtext">This updates as you make your decisions above.</p>
+        <p class="policy-line" id="policy-line-1"></p>
+        <p class="policy-line" id="policy-line-2"></p>
+        <p class="policy-line" id="policy-line-3"></p>
+        <p class="policy-line" id="policy-line-4"></p>
+      </div>
+
+      <div class="summer-cta-bar">
+        <button class="btn btn-primary" id="btn-see-policy" type="button" disabled>See My Policy</button>
+        <p class="policy-status-note" id="policy-status-note"></p>
+      </div>
+
+    </section>
+
+    <!-- RESULTS + EMAIL CAPTURE -->
+    <section class="screen results-screen" id="screen-results" data-screen="results" hidden>
+
+      <div class="policy-result-card" id="policy-result-card">
+        <p class="policy-result-header">Your Reliability Policy</p>
+        <p class="policy-result-date" id="policy-result-date"></p>
+
+        <p class="policy-result-sentence" id="result-sentence-1"></p>
+        <p class="policy-result-sentence" id="result-sentence-2"></p>
+        <p class="policy-result-sentence" id="result-sentence-3"></p>
+        <p class="policy-result-sentence" id="result-sentence-4"></p>
+
+        <p class="editorial-line">This isn't a wall. It's a decision you made when you were thinking clearly — so you don't have to make it again under pressure.</p>
+        <p class="estimate-note">Generosity is a value. A policy protects it.</p>
+      </div>
+
+      <button class="btn btn-text btn-back-to-checklist" id="btn-back-to-builder" type="button">&larr; Edit your policy</button>
+
+      <div class="email-capture" id="email-capture">
+        <p class="eyebrow">One More Thing</p>
+        <h3 class="email-headline">Want your policy saved to your inbox?</h3>
+        <p class="email-copy">
+          We'll send you a copy — yours to refer back to the next time an
+          ask arrives.
+        </p>
+
+        <!--
+          FLODESK EMBED PLACEHOLDER
+          ---------------------------------------------------------
+          Replace everything inside #flodesk-embed-container with this
+          tool's Flodesk form embed code (Flodesk > Forms > [Your Form] >
+          Embed > Copy Code), plus the Flodesk universal loader script in
+          <head> (see index.html for the pattern used on the Ep01 tool).
+          Until then, a lightweight fallback form is shown so the flow is
+          fully demoable. Note: this form is email-only, no name field.
+        -->
+        <div id="flodesk-embed-container" class="flodesk-embed-container">
+          <form class="email-form" id="email-form">
+            <div class="form-row">
+              <label class="sr-only" for="email-address">Email address</label>
+              <input class="form-input" type="email" id="email-address" name="email" placeholder="Email address" autocomplete="email" required>
+            </div>
+            <button class="btn btn-primary btn-full" type="submit">Send my policy</button>
+          </form>
+          <p class="email-disclaimer">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+
+        <div class="email-success" id="email-success" hidden>
+          <p>Your policy is on the way. Check your inbox shortly.</p>
+        </div>
+
+        <button class="btn btn-text btn-skip" id="btn-skip-email" type="button">No thanks, I'm all set</button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Bluhoneí &middot; bluhonei.com &middot; Consider This Newsletter</p>
+  </footer>
+
+</div>
+
+<script src="policy.js"></script>
+</body>
+</html>
