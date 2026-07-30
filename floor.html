@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Financial Floor Calculator · Bluhoneí</title>
+<meta name="description" content="A live calculator from Bluhoneí — estimate your monthly floor and accessible cash to see how long your floor holds and what your transition fund gap looks like.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <main class="stage" id="stage">
+
+    <!-- INTRO -->
+    <section class="screen intro-screen" id="screen-intro" data-screen="intro">
+      <p class="eyebrow">A Bluhoneí Calculator</p>
+      <h1 class="headline">The Financial Floor <em>Calculator</em></h1>
+      <p class="intro-copy">
+        The number that holds your life up — calculated before something
+        tests it.
+      </p>
+      <p class="permission-line">Use your best estimates. Close is close enough to be useful.</p>
+      <button class="btn btn-primary" id="btn-start" type="button">Begin the Calculator</button>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section class="screen worksheet-screen" id="screen-calculator" data-screen="calculator" hidden>
+
+      <p class="permission-line permission-line--top">Use your best estimates. Close is close enough to be useful.</p>
+
+      <!-- SECTION 1 -->
+      <div class="step-card">
+        <h2 class="step-title">What does it cost to keep your life running each month?</h2>
+        <p class="step-instruction">
+          Estimate your regular monthly costs — not what you wish they
+          were, what they actually are.
+        </p>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="cost-housing">Approximate housing cost (rent or mortgage)</label>
+          <p class="bucket-description">Include rent or mortgage payment only</p>
+          <input class="form-input" type="number" id="cost-housing" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="cost-utilities">Approximate utilities</label>
+          <p class="bucket-description">Electric, gas, water, internet, phone</p>
+          <input class="form-input" type="number" id="cost-utilities" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="cost-insurance">Approximate insurance</label>
+          <p class="bucket-description">Health, auto, renters/home, life — combined monthly</p>
+          <input class="form-input" type="number" id="cost-insurance" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="cost-debt">Approximate debt minimums</label>
+          <p class="bucket-description">Credit cards, loans, any recurring debt payments</p>
+          <input class="form-input" type="number" id="cost-debt" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="cost-subscriptions">Approximate subscriptions</label>
+          <p class="bucket-description">Streaming, software, memberships, recurring services</p>
+          <input class="form-input" type="number" id="cost-subscriptions" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="cost-groceries">Approximate groceries and household</label>
+          <p class="bucket-description">Food, cleaning supplies, household basics</p>
+          <input class="form-input" type="number" id="cost-groceries" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="cost-transportation">Approximate transportation</label>
+          <p class="bucket-description">Gas, transit, parking, car maintenance estimate</p>
+          <input class="form-input" type="number" id="cost-transportation" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="live-calc">
+          <p class="live-calc-total">Your estimated monthly floor: <span id="floor-total-amount">$0</span></p>
+          <p class="live-calc-subtext">This is what it costs to keep your life running — before any extras.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="step-card">
+        <h2 class="step-title">What could you actually reach in 48 hours?</h2>
+        <p class="step-instruction">
+          Count only money you could access immediately, without a
+          penalty and without selling anything.
+        </p>
+
+        <p class="calc-warning-note">
+          Do not include retirement accounts, home equity, or
+          investments. Those take time — or cost you a penalty — to
+          reach. Accessible cash only.
+        </p>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="cash-checking">Approximate checking account balance</label>
+          <input class="form-input" type="number" id="cash-checking" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="cash-savings">Approximate savings account balance</label>
+          <input class="form-input" type="number" id="cash-savings" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="bucket-field">
+          <label class="bucket-label" for="cash-other">Approximate other accessible cash (money market, short-term savings)</label>
+          <input class="form-input" type="number" id="cash-other" min="0" step="1" placeholder="$0" inputmode="decimal">
+        </div>
+
+        <div class="live-calc">
+          <p class="live-calc-total">Your accessible cash: <span id="cash-total-amount">$0</span></p>
+        </div>
+      </div>
+
+      <!-- SECTION 3 -->
+      <div class="step-card">
+        <h2 class="step-title">Your Floor Coverage</h2>
+        <div class="live-calc live-calc--result">
+          <p class="live-calc-total live-calc-total--large" id="coverage-result">Add your monthly floor and accessible cash above to see your coverage.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 4 -->
+      <div class="step-card">
+        <h2 class="step-title">What's your transition fund target?</h2>
+        <p class="step-instruction">
+          An emergency fund covers disaster. Transition money covers a
+          choice — a career pivot or a caregiving season. How many
+          months do you want your floor to hold?
+        </p>
+
+        <div class="options" id="transition-options" role="group" aria-label="Transition fund target">
+          <button class="option-card selected" type="button" data-months="3" data-label="3">
+            <span class="option-marker" aria-hidden="true"></span>
+            <span>3 months — the starting floor</span>
+          </button>
+          <button class="option-card" type="button" data-months="4.5" data-label="4–5">
+            <span class="option-marker" aria-hidden="true"></span>
+            <span>4–5 months — room to breathe</span>
+          </button>
+          <button class="option-card" type="button" data-months="6" data-label="6">
+            <span class="option-marker" aria-hidden="true"></span>
+            <span>6 months — full transition runway</span>
+          </button>
+        </div>
+
+        <div class="live-calc">
+          <p class="live-calc-message" id="transition-message"></p>
+          <p class="live-calc-subtext live-calc-subtext--terra" id="transition-subtext" hidden>That's the number worth building toward — one month at a time.</p>
+        </div>
+      </div>
+
+      <div class="summer-cta-bar">
+        <button class="btn btn-primary" id="btn-see-floor" type="button" disabled>See My Floor</button>
+      </div>
+
+    </section>
+
+    <!-- RESULTS + EMAIL CAPTURE -->
+    <section class="screen results-screen" id="screen-results" data-screen="results" hidden>
+
+      <div class="audit-results-intro">
+        <p class="eyebrow">Your Floor</p>
+      </div>
+
+      <div class="summer-card">
+        <p class="summer-card-label">Your Monthly Floor</p>
+        <p class="summer-card-amount" id="card-monthly-floor">$0</p>
+        <p class="summer-card-description">Estimated monthly cost to keep your life running</p>
+      </div>
+
+      <div class="summer-card">
+        <p class="summer-card-label">Your Accessible Cash</p>
+        <p class="summer-card-amount" id="card-accessible-cash">$0</p>
+        <p class="summer-card-description">Money you could reach in 48 hours</p>
+      </div>
+
+      <div class="summer-card">
+        <p class="summer-card-label">Your Floor Coverage</p>
+        <p class="summer-card-amount" id="card-floor-coverage">Approximately 0 months</p>
+      </div>
+
+      <div class="summer-card">
+        <p class="summer-card-label">Your Transition Fund Gap</p>
+        <p class="summer-card-amount" id="card-transition-gap">Covered</p>
+      </div>
+
+      <p class="editorial-line" id="editorial-line"></p>
+      <p class="estimate-note">These calculations are based on your estimates. The value is in the approximation — not the precision.</p>
+
+      <button class="btn btn-text btn-back-to-checklist" id="btn-back-to-calculator" type="button">&larr; Edit your numbers</button>
+
+      <div class="email-capture" id="email-capture">
+        <p class="eyebrow">One More Thing</p>
+        <h3 class="email-headline">Want your floor calculation saved?</h3>
+        <p class="email-copy">
+          We'll send you a copy — yours to revisit when something
+          changes.
+        </p>
+
+        <!--
+          FLODESK EMBED PLACEHOLDER
+          ---------------------------------------------------------
+          Replace everything inside #flodesk-embed-container with this
+          tool's Flodesk form embed code (Flodesk > Forms > [Your Form] >
+          Embed > Copy Code), plus the Flodesk universal loader script in
+          <head> (see index.html for the pattern used on the Ep01 tool).
+          Until then, a lightweight fallback form is shown so the flow is
+          fully demoable. Note: this form is email-only, no name field.
+        -->
+        <div id="flodesk-embed-container" class="flodesk-embed-container">
+          <form class="email-form" id="email-form">
+            <div class="form-row">
+              <label class="sr-only" for="email-address">Email address</label>
+              <input class="form-input" type="email" id="email-address" name="email" placeholder="Email address" autocomplete="email" required>
+            </div>
+            <button class="btn btn-primary btn-full" type="submit">Send my calculation</button>
+          </form>
+          <p class="email-disclaimer">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+
+        <div class="email-success" id="email-success" hidden>
+          <p>Your calculation is on the way. Check your inbox shortly.</p>
+        </div>
+
+        <button class="btn btn-text btn-skip" id="btn-skip-email" type="button">No thanks, I'm all set</button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Bluhoneí &middot; bluhonei.com &middot; Consider This Newsletter</p>
+  </footer>
+
+</div>
+
+<script src="floor.js"></script>
+</body>
+</html>
