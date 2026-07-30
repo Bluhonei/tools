@@ -404,6 +404,12 @@ body {
   font-size: 0.98rem;
 }
 
+.next-step-action {
+  margin: 10px 0 0;
+  font-size: 0.86rem;
+  color: var(--terra);
+}
+
 .btn-retake {
   font-size: 0.85rem;
 }
@@ -751,24 +757,13 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .audit-column-item {
   font-size: 0.8rem;
   line-height: 1.4;
   color: var(--text);
-}
-
-.audit-item-category-tag {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 0.6rem;
-  font-weight: 700;
-  color: var(--terra);
-  opacity: 0.75;
-  margin-bottom: 2px;
 }
 
 .audit-column-empty {
