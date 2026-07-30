@@ -721,46 +721,19 @@ body {
   margin: 0 0 22px;
 }
 
-.audit-section {
+.audit-summary {
   background: var(--white);
   border-radius: var(--radius);
-  border: 1px solid rgba(74, 31, 43, 0.1);
-  border-top: 4px solid var(--section-color, var(--gold));
-  padding: 20px 22px;
+  border: 1px solid rgba(74, 31, 43, 0.12);
+  padding: 22px 24px;
   text-align: left;
-  margin-bottom: 18px;
+  margin-bottom: 30px;
 }
 
-.audit-section--attention {
-  --section-color: var(--state-attention);
-}
-
-.audit-section--avoided {
-  --section-color: var(--state-avoided);
-}
-
-.audit-section-title {
-  font-family: var(--sans);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--section-color, var(--terra));
-  margin: 0 0 14px;
-}
-
-.audit-section-list {
-  list-style: none;
+.audit-summary-text {
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.audit-section-item {
-  font-size: 0.92rem;
-  line-height: 1.45;
+  font-size: 1rem;
+  line-height: 1.6;
   color: var(--text);
 }
 
