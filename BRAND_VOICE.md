@@ -1,144 +1,160 @@
-# Bluhoneí Brand Voice — Reference for Claude Code Sessions
+# Bluhoneí — Brand Voice
 
-Read this file before writing any copy, labels, result text, button text, error messages, or UI strings in any Bluhoneí tool.
+**Status:** Locked. Do not reinterpret. If a request conflicts with this file, stop and ask.
+**Last synced from Notion:** August 5, 2026 (Brand Standards — Color \& Voice). Source page unchanged as of August 12, 2026 — only a cross-reference to editorial-guidelines.md's new AI-register vocabulary was added below; nothing else in this file was re-verified.
 
----
+\---
 
-## Who Bluhoneí Is For
+## What Bluhoneí is
 
-Women in their 40s navigating their second act. She has already figured out a lot. She is not a beginner. She does not need to be explained to. She needs clarity, not cheerleading.
+A lifestyle media platform for women navigating their second act — post-40. Five content pillars: Money Matters, Wellness, Style, Home \& Entertaining, Culture.
 
----
+The reader has already figured out a lot. Write to a woman who knows herself, not to someone who needs convincing.
 
-## The Brand Posture — Soft Villain
+\---
 
-Refined confidence with edge. Calm certainty without apology. Statements, not disclaimers. She already knows. We are just naming it.
+## Locked credential line
 
-**Locked brand line:** *"The second act is not a soft landing. It is a sharper edit."*
+> I've spent over fifteen years building brands for others. This one's built on everything else I've learned.
 
-**Locked credential line:** *"I've spent over fifteen years building brands for others. This one's built on everything else I've learned."*
+Use verbatim where it appears. Do not paraphrase, shorten, or restructure it.
 
----
+\---
 
-## Voice Principles
+## Sounds like / never sounds like
 
-| Do | Don't |
-|---|---|
-| Warm, direct, specific | Clinical, generic, instructional |
-| Statements | Disclaimers |
-| Second person — she, you | First person plural — we all know, we've all been there |
-| Short sentences when making a point | Long explanatory sentences |
-| Calm certainty | Urgency or panic |
-| Earned permission | Hollow affirmation |
-| Name the pattern | List the symptoms |
+**Sounds like:** Calm confidence · Cultural fluency · Warm authority · Editorial clarity · Grown-woman ease
 
----
+**Never sounds like:** Trendy · Over-explained · Aspirational fluff · Coachy · Loud · Defensive · Overly poetic
 
-## Tone by Context
+Reference point: Elaine Welteroth's clarity, Athena Calderone's restraint, Tracee Ellis Ross's warmth. Delivered with a New York–shaped sensibility.
 
-**Intro screens:** Confident, minimal. One sentence that names what this does. No explaining how it works.
+\---
 
-**Question labels / inventory items:** Plain, specific, first person. "I know my current balance." Not "Do you know your balance?"
+## Five voice principles
 
-**Result summaries:** Editorial voice. 2-3 sentences that synthesize the pattern — not list it back. Name what it means, not what she selected. Warm but not soft. Direct but not harsh.
+|Principle|Do|Don't|
+|-|-|-|
+|Self-assured, not performative|"This works for me."|"Here's why you should do this."|
+|Selective, not silent|"Here when it matters."|"Posting every detail."|
+|Warm, not available|"Come closer."|"Come into everything."|
+|Cultured, not trend-driven|"This has stayed with me."|"This is trending."|
+|Ambitious, not apologetic|"I want more."|"I hope this is okay."|
 
-**Next step / action copy:** Specific, free, doable within a week. One sentence statement. One sentence action in terra (#c47b63). Never generic. Never "consult a financial advisor" as the first move.
+\---
 
-**Email capture:** Low friction. Show results first, offer to send after. Never gate.
+## Tone markers
 
-**Button copy:** Action-oriented, specific to context. "Begin the Worksheet" not "Start." "Send my results" not "Subscribe." "Send my audit" not "Submit."
+* Statements, not disclaimers
+* Short sentences when making a point
+* Calm certainty
+* No justification for boundaries
+* Few emojis
 
-**Footer:** "Bluhoneí · bluhonei.com · Consider This Newsletter"
+✔ "This is what I enjoy." ✘ "I know this isn't for everyone."
+✔ "I prefer…" ✘ "Let me know if you agree."
 
----
+\---
 
-## Banned Constructions
+## Lexicon
 
-Never use these in any UI copy, result text, or summary:
+**Use often:** presence, taste, ritual, culture, refinement, discernment, clarity, ambition, self-possession, grounded, measured, lived, curated, becoming
 
-- "It's not X, it's Y" reframe construction
-- Parallel lists for emotional effect (three things in a row for rhythm)
-- Verse-like cadences — fragments stacked for poetic effect
-- "Not this. Not that." pattern
-- "genuinely" / "honestly" / "straightforward"
-- ALL CAPS for emotional emphasis
-- Exclamation points
-- "You've got this" or any hollow affirmation
-- "Just" as a minimizer ("just take five minutes")
-- Generic financial advice ("consult a professional") as a first move
+**Use strategically:** quiet richness, elevated living, grown-woman energy, the second act, soft power, depth, restraint, ease, private confidence, cultural fluency
 
----
+**Avoid or limit:** hustle, grind, glow-up, manifest, boss, soft life (overused — imply instead), aesthetic (sparingly), luxury (selectively, never as a crutch)
 
-## Lexicon — Proprietary Bluhoneí Terms
+⚠️ **This list is brand vocabulary — words that clash with Bluhoneí's specific positioning.** It's a different, separate list from the AI-register vocabulary in `editorial-guidelines.md` (delve, underscore, showcase, leverage, crucial, vital, nuanced, and similar) — that list flags words that read as machine-generated regardless of brand fit. Check a draft against both; clearing one doesn't clear the other.
 
-Use these naturally in copy where relevant. Do not explain them.
+\---
 
-- **The Reliable Woman Tax** — the financial and emotional cost of always being the dependable one
-- **Peace Capital** — enough margin to make decisions without panic
-- **The Floor Beneath the Wealth** — the systems that hold a life up when something breaks
-- **Emotional Sustainability** — building a life that doesn't require constant depletion
-- **The Second Act Economy** — the financial landscape specific to women rebuilding in their 40s
-- **Financial Margin** — enough money and flexibility to choose without panic
+## Color system
 
----
+**Locked August 5, 2026.** Sharp editorial contrast: white ground, near-black text, one accent — plus full-bleed bands for rhythm. The previous warm palette is retired — see the retired list below and do not reintroduce those values.
 
-## Result Summary Voice — Examples
+|Token|Hex|Job|
+|-|-|-|
+|Page|`#FFFFFF`|The ground. Not cream.|
+|Ink|`#111111`|Body, headlines, **and rules**|
+|Muted|`#5C5C5C`|Deks, dates, eyebrows, captions|
+|Plum|`#3A1026`|Links, buttons, dark band — the only chromatic accent in type|
+|Lavender|`#C9B7D6`|**Band only.** Light interruption.|
+|Cream|`#FBF8F4`|**Band only.** Quiet interruption. Never the page ground.|
 
-These are examples of the Bluhoneí result voice. Match this register exactly.
+`#FBF8F4` as a page background is the signature of the wellness-lifestyle category. As a band behind a single section on a white page it's a deliberate editorial move. As the page it undoes the whole system.
 
-**Example 1 — Debt avoidance pattern:**
-"Your income picture is clear — but what sits underneath it isn't. The gaps in your debt detail and protection documents are the kind of thing that feels fine until it isn't. You're not starting from zero. You're starting from an honest look at what needs a second review."
+### The band rule
 
-**Example 2 — Income stagnation pattern:**
-"You're managing what you have — but the income side of this picture has some catching up to do. The negotiation you've been putting off and the rate question you haven't asked are the gaps most likely to compound over time. That conversation is worth having before the year ends."
+Three interruption registers. Each is **full-bleed, edge to edge.** A band is the page changing register. A contained tint box inside the content column is decoration, and that reads blog rather than press.
 
-**Example 3 — Everything needs attention, nothing avoided:**
-"You know what's there — you just haven't reviewed it recently. That's a different problem than avoidance, and it's an easier one to solve. Pick the category that matters most right now and give it one hour this week."
+|Band|Type color|Use|
+|-|-|-|
+|Plum `#3A1026`|White, reversed|High drama. Newsletter, end-of-article.|
+|Lavender `#C9B7D6`|Ink `#111111` or plum `#3A1026`|Light relief. Section breaks, The Edit.|
+|Cream `#FBF8F4`|Ink `#111111`|Quietest. Use sparingly.|
 
----
+**Lavender constraints:** full-bleed only — never a card fill, never a callout, never a panel behind a pull quote. Generous height; a thin strip reads decorative, a tall band reads structural. Ink or plum type only — never white, never muted gray. Contrast on lavender: ink 10.1:1, plum 8.8:1.
 
-## Color Palette
+⚠️ The "Lavender Tint Block" in the older brand guide application examples is the **panel** version and is retired. Pull quotes are typographic, never tinted.
 
-| Role | Hex |
-|---|---|
-| Background | #fbf8f4 |
-| Primary / plum | #4a1f2b |
-| Accent / terra | #c47b63 |
-| Gold | #d9b783 |
-| Body text | #3a2d2a |
-| Muted text | #6a5a55 |
-| Success green | #2d6a2d |
-| Warning amber | #8a6200 |
-| Avoided red | #9a2020 |
+### Rules and dividers
 
----
+Rules are `#111111` at 0.5–1px. Not a faint gray hairline. Full-strength rules tight to the content are most of what makes a page read as set rather than styled.
+
+### Buttons
+
+|Type|Spec|
+|-|-|
+|Primary|Background `#3A1026` / text `#FFFFFF` / hover background `#111111`|
+|Secondary (editorial outline)|Transparent / border and text `#111111` / hover: border and text `#3A1026`. No shadow.|
+|Text link|`#3A1026`, underline on hover|
+
+### Retired — do not reintroduce
+
+`#fbf8f4` as page ground · `#3a2d2a` · `#6a5a55` · `#4a1f2b` · `#c47b63` · `#d9b783` · `#9AAE9A` soft sage · `#E6E6E6` divider gray · `#C9B7D6` as anything other than a full-bleed band
+
+If a design reference, mockup, or older document uses these, it predates August 5, 2026. Stop and ask rather than reconciling.
+
+### Where the sharpness comes from
+
+Color sets the ceiling. These do the work:
+
+* **Type scale contrast** — a 64px headline over 17px body reads sharp; 32px over 18px reads like a blog. Push the ratio.
+* **Rule discipline** — full-strength hairlines separating sections, tight to the content.
+* **Tracked-out caps** for eyebrows and labels, small: 11–12px, generous letter-spacing.
+
+**Contrast:** `#111111` on white is 18.9:1, `#5C5C5C` is 7.0:1 — both clear AAA. `#3A1026` clears AA for links; white on `#3A1026` works for the band.
+
+\---
 
 ## Typography
 
-- Headers: Georgia serif, italic where appropriate
-- Body: system sans-serif (Inter, -apple-system, BlinkMacSystemFont)
-- No decorative fonts
-- No all-caps except for small eyebrow labels (A BLUHONEÍ WORKSHEET)
+Display: **IvyOra Display**. Body: **Inter Tight**.
 
----
+**IvyOra licensing resolved August 10, 2026** — self-hosted web license purchased directly from Ivy Foundry (not Adobe Fonts, which would tie the font to an ongoing Creative Cloud subscription). Font files to be added to the repo and self-hosted via `next/font/local`; see build-spec.md §6 for the implementation pattern. Until the actual licensed files arrive, continue building against the stack-safe fallback.
 
-## Tool Structure Standards
+\---
 
-Every tool in the Bluhonei/tools repo follows this pattern:
+## Platform tone
 
-1. Intro screen — eyebrow label + title + one-line tagline + single CTA button. No explanation of how it works.
-2. Tool interaction — quiz, scorecard, or inventory (varies per tool)
-3. Results — synthesized summary in Bluhoneí voice, not a list of answers reflected back
-4. Most Important Next Step — one statement + one specific action in terra
-5. Privacy line — "This audit is private. Nothing here is shared unless you choose to send it to yourself." (audit only) or equivalent
-6. Email capture — soft offer, results shown first. Fields: email only or name + email depending on tool. Button: specific to tool context.
-7. Footer — "Bluhoneí · bluhonei.com · Consider This Newsletter"
+|Channel|Tone|Notes|
+|-|-|-|
+|Blog / website|Intelligent, specific, grounded|Lived experience anchor is non-negotiable|
+|YouTube|Thoughtful, conversational, assured|Gentle opening, clear perspective, calm close|
+|Instagram|Editorial, warm, composed|Short to medium, one idea, no over-explaining|
+|Pinterest|Aspirational, evergreen, descriptive|Calm, search-friendly, no hashtags|
+|Newsletter|Intimate, direct, perspective-led|"every two weeks," never "biweekly"|
 
----
+\---
 
-## What Bluhoneí Sounds Like
+## The litmus test
 
-Think: Elaine Welteroth's clarity + Athena Calderone's restraint + Tracee Ellis Ross's warmth. Delivered with a New York-shaped sensibility.
+Before shipping any copy:
 
-A woman who has already figured out a lot. Now airing: clarity, not instructions.
+1. Does this sound like a woman who knows herself?
+2. Is this calm, or is it trying too hard?
+3. Would this still feel relevant in three years?
+4. Does this align with taste, culture, and clarity?
+
+If no — revise.
 
