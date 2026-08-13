@@ -103,10 +103,10 @@ so each flow is demoable end to end. To go live for any of them:
 - `summer.html` / `summer.js` — Ep04 The Summer Spending Worksheet
 - `floor.html` / `floor.js` — Ep05 The Financial Floor Calculator
 - `policy.html` / `policy.js` — Ep06 The Reliability Policy
-- `style.css` — shared Bluhoneí brand styling (cream/plum/terra/gold
-  palette, card components, dimension-breakdown dots, audit checklist/
-  toggle/modal components, step cards/live-calc/result cards shared by
-  the Summer Worksheet, Floor Calculator, and Reliability Policy) used
-  by all six tools
+- `style.css` — shared Bluhoneí brand styling (white/ink/muted/plum
+  editorial palette, card components, dimension-breakdown dots, audit
+  checklist/toggle/modal components, step cards/live-calc/result cards
+  shared by the Summer Worksheet, Floor Calculator, and Reliability
+  Policy) used by all six tools
 - `BRAND_VOICE.md` — copy/voice reference; read before writing any UI text
 - `netlify.toml` — Netlify deploy configuration
