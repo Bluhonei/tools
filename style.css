@@ -530,6 +530,15 @@ body {
   color: var(--muted);
 }
 
+.site-footer a {
+  color: var(--plum);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
 .site-footer p {
   margin: 0;
 }
