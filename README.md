@@ -1,5 +1,7 @@
 # Bluhoneí Tools
 
+> **Moved:** tool edits now happen in `web/public/tools/` (Bluhonei/web, served at bluhonei.com/tools/); this repo exists only to serve the Netlify redirects in `_redirects` and to hold `BRAND_VOICE.md`.
+
 Companion interactive tools for Bluhoneí articles/episodes. Static site,
 no build step, no dependencies. Deploys to Netlify as-is.
 

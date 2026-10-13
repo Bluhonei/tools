@@ -1,0 +1,28 @@
+# PERMANENT REDIRECTS. The companion tools moved to bluhonei.com/tools/
+# (Bluhonei/web, public/tools/). These old bluhonei-tools.netlify.app URLs
+# are printed in published YouTube videos and emails, so this Netlify site
+# must stay up forever as a redirect layer. Never delete the Netlify site,
+# and never remove these rules.
+#
+# "301!" = permanent redirect, forced. The tool files still exist in this
+# repo, and without "!" Netlify would serve the file instead of
+# redirecting. Every rule points at the final URL, so each old link is one
+# hop. Rules are matched top to bottom; first match wins.
+
+# Root and the six tools
+/                 https://bluhonei.com/tools/index.html      301!
+/index.html       https://bluhonei.com/tools/index.html      301!
+/scorecard.html   https://bluhonei.com/tools/scorecard.html  301!
+/audit.html       https://bluhonei.com/tools/audit.html      301!
+/summer.html      https://bluhonei.com/tools/summer.html     301!
+/floor.html       https://bluhonei.com/tools/floor.html      301!
+/policy.html      https://bluhonei.com/tools/policy.html     301!
+# The same tools without .html, which Netlify also serves
+/index            https://bluhonei.com/tools/index.html      301!
+/scorecard        https://bluhonei.com/tools/scorecard.html  301!
+/audit            https://bluhonei.com/tools/audit.html      301!
+/summer           https://bluhonei.com/tools/summer.html     301!
+/floor            https://bluhonei.com/tools/floor.html      301!
+/policy           https://bluhonei.com/tools/policy.html     301!
+# Everything else: CSS, JS, unknown paths
+/*                https://bluhonei.com/tools/:splat          301!
